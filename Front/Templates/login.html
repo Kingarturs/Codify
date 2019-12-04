@@ -11,6 +11,7 @@
 
 	<link href="https://fonts.googleapis.com/css?family=Merienda&display=swap" rel="stylesheet"> 
 	<link href="https://fonts.googleapis.com/css?family=Actor&display=swap" rel="stylesheet"> 
+	<link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet"> 
 
 	<script defer type="text/javascript" src="js/scripts.js"></script>
 	<script defer type="text/javascript" src="js/vendor/jquery.js"></script>
@@ -23,9 +24,9 @@
 <body>
 	<!-- Top Bar -->
 	<div class="top-bar-container altura-69">
-		<div class="top-bar is-anchored altura-69 width-100" style="background-color: #100A09;">			
-			<div class="menu large-12 medium-12 align-middle align-center logo">
-				<h1 class="codify" onclick="location.href='welcome.html'">Codify</h1>
+		<div class="top-bar is-anchored altura-69 width-100" style="background-color: #01050C;">			
+			<div class="menu large-12 medium-12 small-12 align-middle align-center">
+				<h1 class="line anim-typewriter" onclick="location.href='welcome.html'">Codify( )</h1>
 			</div>					
 		</div>
 	</div>
@@ -37,25 +38,34 @@
 				<div class="row expanded align-center align-middle large-6">
 					<!-- Div Sign Up & Login -->
 					<div class="container large-12 medium-10" id="container">
-						<div class="form-container sign-up-container large-12">
+						<div id="SIGNUP" class="form-container sign-up-container large-12">
 							<form action="#" class="signUpStyles">
 								<h1>Sign Up</h1>
 								<input type="text" placeholder="Username" />
 								<input type="email" placeholder="Email" />
 								<input type="password" placeholder="Password" />
 								<input type="password" placeholder="Confirm Password" />
+								<!-- Móvil -->
+								<p class="show-for-small-only">
+								Already have an account? Login <a onclick="cambiarALogin()">here</a>
+								</p>
+								<!-- ///////////// -->
 								<button>Sign Up</button>
 							</form>
 						</div>
-						<div class="form-container sign-in-container large-12">
+						<!-- CAMBIAR HIDE FOR SMALL ONLY! -->
+						<div id="LOGIN" class="form-container sign-in-container large-12">
 							<form action="#" class="signInStyles">
 								<h1>Login</h1>
-								<input type="text" placeholder="Username" />
-								<input type="password" placeholder="Password" />
+								<input type="text" placeholder="Username"/>
+								<input type="password" placeholder="Password"/>
+								<!-- Móvil -->
+								<p class="show-for-small-only">Don't have an account? Sign up <a onclick="cambiarASignUp()">here</a></p>
+								<!-- ///////// -->
 								<button>Login</button>
 							</form>
 						</div>
-						<div class="overlay-container large-12">
+						<div class="overlay-container large-12 hide-for-small-only">
 							<div class="overlay">
 								<div class="overlay-panel overlay-left welcomeBack">
 									<h1>Welcome Back!</h1>
