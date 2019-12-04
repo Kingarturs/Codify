@@ -81,6 +81,30 @@ body, html {
 /* Small only */
 @media screen and (max-width: 39.9375em) {
 
+/*Animación de Bienvenida */
+
+.bienvenida {
+    -webkit-animation: cssAnimation 0s ease-in 5s forwards;
+    -moz-animation: cssAnimation 0s ease-in 5s forwards;
+    -o-animation: cssAnimation 0s ease-in 5s forwards;
+    animation: cssAnimation 0s ease-in 5s forwards;
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+}
+
+@keyframes cssAnimation {
+    from {
+        visibility:hidden;
+    }
+    to {
+        width:0;
+        height:0;
+        visibility:hidden;
+    }
+}
+
+/*////////////////*/
+
 /*Div Sign Up & Login*/
 
 .signUpStyles {
@@ -350,6 +374,7 @@ button.ghost {
 .sectionWelcome {
 	margin: 0;
   	background-image: radial-gradient(#021027, #000000);
+  	height: calc(100% - 69px) !important;
 }
 
 .botones {
