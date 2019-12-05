@@ -1,0 +1,127 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Codify</title>
+
+	<link rel="stylesheet" href="{% static 'css/styles.css' %}">
+	<link rel="stylesheet" href="{% static 'css/app.css' %}">
+	<link rel="stylesheet" href="{% static 'css/foundation.css' %}">
+	<link rel="stylesheet" href="{% static 'css/foundation.min.css' %}">
+
+	<link href="https://fonts.googleapis.com/css?family=Merienda&display=swap" rel="stylesheet"> 
+	<link href="https://fonts.googleapis.com/css?family=Actor&display=swap" rel="stylesheet"> 
+	<link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet"> 
+
+	<script defer type="text/javascript" src="{% static 'js/particulas.js' %}"></script>
+	<script defer type="text/javascript" src="{% static 'js/particles.js '%}"></script>
+
+	<script defer type="text/javascript" src="{% static 'js/scripts.js' %}"></script>
+	<script defer type="text/javascript" src="{% static 'js/vendor/jquery.js' %}"></script>
+	<script defer type="text/javascript" src="{% static 'js/vendor/foundation.js' %}"></script>
+	<script defer type="text/javascript" src="{% static 'js/app.js' %}"></script>
+	<script defer type="text/javascript" src="{% static 'js/vendor/foundation.min.js' %}"></script>
+	
+	<script defer type="text/javascript" src="{% static 'js/vendor/what-input.js' %}"></script>
+
+	<script defer type="text/javascript" src="{% static 'js/particulas.js' %}"></script>
+	<script defer type="text/javascript" src="{% static 'js/particles.js '%}"></script>
+
+</head>
+<body>
+	<div id="particles-js"></div>
+	
+	<!-- Pantalla de Bienvenida - Móvil -->	
+	<div class="bienvenida height-100 width-100 show-for-small-only hasFlex" style="position: absolute; z-index: 3; background-image: radial-gradient(#021027, #000000);">
+		<div class="row small-12 show-for-small-only">
+			<div class="columns small-12 align-middle align-center hasFlex">	
+				<h1 class="line anim-typewriter" style="font-size: 4em;">Codify( )</h1>
+			</div>			
+		</div>		
+	</div>
+	
+	<!-- Pantalla Welcome -->
+	<section class="sectionWelcome height-100">
+		<div class="row expanded height-100">
+			<div class="width-100 hasFlex">
+				<div class="row expanded align-left align-middle large-12">
+					<!-- Welcome Page -->
+					<div class="row menu large-12 align-middle show-for-small-only">
+						<!-- Móvil -->
+						<h1 class="line anim-typewriter" style="font-size: 3em;">Codify( )</h1>
+					</div>			
+					<div class="row large-7 small-12">
+						<div class="columns large-12 align-middle left-padding-2">
+							<!-- Móvil -->
+							<div class="columns small-12 no-padding show-for-small-only">
+								<div class="orbit" role="region" aria-label="Favorite Space Pictures" data-orbit>
+									<div class="orbit-wrapper">
+										<div class="orbit-controls">
+											<button style="cursor: pointer; z-index: 2;" class="orbit-previous"><span class="show-for-sr">Previous Slide</span>&#9664;&#xFE0E;</button>
+											<button style="cursor: pointer; z-index: 2;" class="orbit-next"><span class="show-for-sr">Next Slide</span>&#9654;&#xFE0E;</button>
+										</div>
+										<ul class="orbit-container">
+											<li class="is-active orbit-slide">
+												<figure class="orbit-figure">
+													<img style="width: 100%;" class="orbit-image" src="{% static 'img/kitten.jpg '%}" alt="Space">
+												</figure>
+											</li>
+											<li class="orbit-slide">
+												<figure class="orbit-figure">
+													<img style="width: 100%;" class="orbit-image" src="{% static 'img/kitten.jpg '%}" alt="Space">
+												</figure>
+											</li>
+											<li class="orbit-slide">
+												<figure class="orbit-figure">
+													<img style="width: 100%;" class="orbit-image" src="{% static 'img/kitten.jpg '%}" alt="Space">
+												</figure>
+											</li>
+										</ul>
+									</div>
+									<nav class="orbit-bullets">
+										<button class="is-active" data-slide="0">
+											<span class="show-for-sr">First slide details.</span>
+											<span class="show-for-sr" data-slide-active-label>Current Slide</span>
+										</button>
+										<button data-slide="1"><span class="show-for-sr">Second slide details.</span></button>
+										<button data-slide="2"><span class="show-for-sr">Third slide details.</span></button>
+									</nav>
+								</div>
+							</div>
+
+							<!-- Título, descripción y boton START NOW - Web -->
+							<div class="columns large-12 no-padding hide-for-small-only">
+								<h1 class="line anim-typewriter">Codify( )</h1>
+							</div>							
+							<div class="columns large-12 no-padding description hide-for-small-only">
+								<p>Code in real time using Python or JavaScript and work online with anyone, anywhere, anytime!</p>
+							</div>						
+							<div class="columns large-12 startNow hide-for-small-only">
+								<button class="hbtn hb-fill-on" onclick="location.href='login'" >START NOW</button>
+							</div>
+						</div>
+					</div>
+
+					<div class="row large-5">
+						<!-- Móvil -->
+						<div class="columns small-12 align-middle left-padding-2 right-padding-2 hasFlex show-for-small-only">
+							<button class="hbtn hb-fill-on show-for-small-only registrar" onclick="location.href='login.html#SIGNUP'">SIGN UP</button>
+							<button class="hbtn hb-fill-on show-for-small-only iniciarSesion" onclick="location.href='login.html#LOGIN'">LOGIN</button>
+						</div>
+
+						<!-- Animaciones Íconos Web -->
+						<div class="columns large-12 align-middle left-padding-2 hasFlex pyt hide-for-small-only">
+							<img class="python" src="{% static 'img/python.svg' %}" alt="python">
+						</div>
+						<div class="columns large-12 align-middle right-padding-2 hasFlex jav hide-for-small-only">
+							<img class="javascript" src="{% static 'img/javascript.svg' %}" alt="javascript">
+						</div>
+					</div>					
+				</div>			
+			</div>
+		</div>	
+	</section>
+	
+</body>
+</html>
