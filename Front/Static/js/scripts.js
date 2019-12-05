@@ -1,4 +1,5 @@
 const signUpButton = document.getElementById('signUp');
+// const registro = document.getElementById('registro');
 const signInButton = document.getElementById('signIn');
 const container = document.getElementById('container');
 
@@ -12,7 +13,6 @@ signInButton.addEventListener('click', () => {
 
 document.getElementById("LOGIN").style.display = "block";
 document.getElementById("SIGNUP").style.display = "block";
-
 
 function cambiarASignUp() {
 	document.getElementById("LOGIN").style.display = "none";

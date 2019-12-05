@@ -391,12 +391,7 @@ button.ghost {
 	margin-left: 1.3em;
 }
 
-.registrar {
-	font-size: 0.9em !important;
-	margin-right: 1em !important;
-}
-
-.iniciarSesion {
+.comenzar {
 	font-size: 0.9em !important;
 }
 
@@ -412,26 +407,26 @@ button.ghost {
 }
 
 .anim-typewriter {
-      animation: typewriter 2s steps(13) 1s 1 normal both,
-      blinkTextCursor 1000ms steps(13) infinite normal;
+    animation: typewriter 2s steps(13) 1s 1 normal both,
+    blinkTextCursor 1000ms steps(13) infinite normal;
 }
 
 @keyframes typewriter {
-      from {
-            width: 0;
-      }
-      to {
-            width: 4.4em;
-      }
+    from {
+        width: 0;
+    }
+    to {
+        width: 4.4em;
+    }
 }
 
 @keyframes blinkTextCursor {
-      from {
-            border-right-color: rgba(255, 255, 255, 0.75);
-      }
-      to {
-            border-right-color: transparent;
-      }
+    from {
+        border-right-color: rgba(255, 255, 255, 0.75);
+    }
+    to {
+        border-right-color: transparent;
+    }
 }
 
 /*//////////////////*/
@@ -453,30 +448,7 @@ button.ghost {
     white-space: nowrap;
     z-index: 2;
     cursor: pointer;
-}  
-
-.hbtn i {
-    padding-right: 8px;
-}  
-
-.hb-fill-on::before {
-    position: absolute;
-    content: "";
-    background: #FFFFFF none repeat scroll 0% 0%;
-    transition-duration: 0.3s;
-    z-index: -1;
-    inset: 0px auto auto 0px;
-    width: 100%;
-    height: 100%;
-    opacity: 0;
-} 
- 
-.hb-fill-on:hover::before {
-    width: 100%;
-    height: 100%;
-    opacity: 1;
-} 
- 
+}   
 
 .hb-fill-on:hover {
     color: rgb(0, 0, 0);
@@ -888,29 +860,6 @@ button.ghost {
     z-index: 2;
     cursor: pointer;
 }  
-
-.hbtn i {
-    padding-right: 8px;
-}  
-
-.hb-fill-on::before {
-    position: absolute;
-    content: "";
-    background: #16ba9e none repeat scroll 0% 0%;
-    transition-duration: 0.3s;
-    z-index: -1;
-    inset: 0px auto auto 0px;
-    width: 100%;
-    height: 100%;
-    opacity: 0;
-} 
- 
-.hb-fill-on:hover::before {
-    width: 100%;
-    height: 100%;
-    opacity: 1;
-} 
- 
 
 .hb-fill-on:hover {
     color: rgb(0, 0, 0);
@@ -1329,33 +1278,10 @@ button.ghost {
     cursor: pointer;
 }  
 
-.hbtn i {
-    padding-right: 8px;
-}  
-
-.hb-fill-on::before {
-    position: absolute;
-    content: "";
-    background: #FFFFFF none repeat scroll 0% 0%;
-    transition-duration: 0.3s;
-    z-index: -1;
-    inset: 0px auto auto 0px;
-    width: 100%;
-    height: 100%;
-    opacity: 0;
-} 
- 
-.hb-fill-on:hover::before {
-      width: 100%;
-      height: 100%;
-      opacity: 1;
-} 
- 
-
 .hb-fill-on:hover {
-      color: rgb(0, 0, 0);
-      background: rgb(255, 255, 255) none repeat scroll 0% 0%;
-      transition: color 0.3s ease 0s, background 0s ease 0.3s;
+    color: rgb(0, 0, 0);
+    background: rgb(255, 255, 255) none repeat scroll 0% 0%;
+    transition: color 0.3s ease 0s, background 0s ease 0.3s;
 } 
 
 /*//////////////////////*/
