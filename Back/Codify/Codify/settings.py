@@ -37,6 +37,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
+    'rest_framework.authtoken',
+    'Apps.Solicitudes',
+    'Apps.Documentos',
+    'Apps.REST',
+    'Apps.Accesos',
+    'channels',
 ]
 
 MIDDLEWARE = [
@@ -67,8 +74,8 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'Codify.wsgi.application'
-
+# WSGI_APPLICATION = 'Codify.wsgi.application'
+ASGI_APPLICATION = 'Codify.routing.application'
 
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
@@ -119,6 +126,17 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
+
+REST_FRAMEWORK = {
+    'DEFAULT_PAGINATION_CLASS':'rest_framework.pagination.PageNumberPagination',
+    'PAGE_SIZE': 100,
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.TokenAuthentication',
+    ),
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.IsAuthenticated',
+    ),
+}
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = (os.path.join(BASE_DIR, 'Static'),)
