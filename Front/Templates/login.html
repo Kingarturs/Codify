@@ -23,22 +23,18 @@
 	<script defer type="text/javascript" src="../Static/js/vendor/what-input.js"></script>
 </head>
 <body>
-	<!-- Top Bar -->
-	<div class="top-bar-container altura-69">
-		<div class="top-bar is-anchored altura-69 width-100" style="background-color: #01050C;">			
-			<div class="menu large-12 medium-12 small-12 align-middle align-center">
-				<h1 class="line anim-typewriter" onclick="location.href='welcome.html'">Codify( )</h1>
-			</div>					
-		</div>
-	</div>
-
 	<!-- Pantalla Sign Up & Login -->
-	<section class="section1 height-topbar">
+	<section class="section1 height-100">
 		<div class="row expanded height-100">
 			<div class="width-100 hasFlex">
 				<div class="row expanded align-center align-middle large-6">
-					<!-- Div Sign Up & Login -->
+					<!-- Logo de Codify Web & Móvil -->
+					<div class="row menu large-12 align-middle align-center">
+						<h1 class="line anim-typewriter" onclick="location.href='welcome.html'" style="font-size: 3.5em;">Codify( )</h1>
+					</div>			
+					<!-- Sign Up & Login -->
 					<div class="container large-12 medium-10" id="container">
+						<!-- Contenedor de Sign Up -->
 						<div id="SIGNUP" class="form-container sign-up-container large-12">
 							<form action="#" class="signUpStyles">
 								<h1>Sign Up</h1>
@@ -48,13 +44,13 @@
 								<input type="password" placeholder="Confirm Password" />
 								<!-- Móvil -->
 								<p class="show-for-small-only">
-								Already have an account? Login <a onclick="cambiarALogin()">here</a>
+									Already have an account? Login <a onclick="cambiarALogin()">here</a>
 								</p>
 								<!-- ///////////// -->
 								<button>Sign Up</button>
 							</form>
 						</div>
-						<!-- CAMBIAR HIDE FOR SMALL ONLY! -->
+						<!-- Contenedor de Login -->
 						<div id="LOGIN" class="form-container sign-in-container large-12">
 							<form action="#" class="signInStyles">
 								<h1>Login</h1>
@@ -66,13 +62,16 @@
 								<button>Login</button>
 							</form>
 						</div>
+						<!-- Divs para Animación del Login & Sign Up -->
 						<div class="overlay-container large-12 hide-for-small-only">
 							<div class="overlay">
+								<!-- Div Welcome Back! -->
 								<div class="overlay-panel overlay-left welcomeBack">
 									<h1>Welcome Back!</h1>
 									<p>Already have an account? Login here!</p>
 									<button class="ghost" id="signIn">Login</button>
 								</div>
+								<!-- Div Hello There! -->
 								<div class="overlay-panel overlay-right helloThere">
 									<h1>Hello There!</h1>
 									<p>Don't have an account? Sign up here!</p>
