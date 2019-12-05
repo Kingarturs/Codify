@@ -1,5 +1,4 @@
 const signUpButton = document.getElementById('signUp');
-// const registro = document.getElementById('registro');
 const signInButton = document.getElementById('signIn');
 const container = document.getElementById('container');
 
@@ -15,12 +14,16 @@ document.getElementById("LOGIN").style.display = "block";
 document.getElementById("SIGNUP").style.display = "block";
 
 function cambiarASignUp() {
-	document.getElementById("LOGIN").style.display = "none";
+	var cambiarColor = document.getElementById("registro");
+  	document.getElementById("LOGIN").style.display = "none";
+	cambiarColor.classList.add("SIGNUPANIM");
 	document.getElementById("SIGNUP").style.display = "block";
 }
 
 function cambiarALogin() {
+	var cambiarColor = document.getElementById("inicio");
 	document.getElementById("SIGNUP").style.display = "none";
+	cambiarColor.classList.add("LOGINANIM");
 	document.getElementById("LOGIN").style.display = "block";
 }
 

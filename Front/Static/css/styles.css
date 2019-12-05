@@ -516,6 +516,28 @@ canvas {
 	z-index: 2;
 }
 
+/*Sign Up & Login CHANGE COLOR ANIMATION*/
+
+.SIGNUPANIM {
+    animation: changeColor 1.5s forwards;
+}
+
+.LOGINANIM {
+	animation: changeColor 1.5s forwards;
+}
+
+@keyframes changeColor {
+    0% {
+        background: #FFFFFF;
+    }
+    50% {
+    	background: #274E52;
+    }
+    100% {
+    	background: #FFFFFF;
+    }
+}
+
 }
 
 /* Medium and up */
