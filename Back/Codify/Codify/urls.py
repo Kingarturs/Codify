@@ -32,4 +32,6 @@ urlpatterns = [
     path('', views_accesos.welcome_view),
     path('login/', views_accesos.login_view),
     path('index/', views_accesos.index_view),
+    path('index/crearCarpeta', views_documentos.crearCarpeta),
+    path('index/logout', views_REST.logout),
 ]

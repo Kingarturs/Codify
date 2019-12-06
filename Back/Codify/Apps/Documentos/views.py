@@ -16,6 +16,8 @@ from rest_framework.status import (
 )
 from Apps.Documentos import models as models_documentos
 from Apps.Documentos import serializers as DocumentoSerializers
+import os
+from django.http import HttpResponse
 
 # Create your views here.
 class DocumentoViewSet(viewsets.ModelViewSet):
@@ -37,3 +39,8 @@ class CarpetaViewSet(viewsets.ModelViewSet):
         recent_carpetas = models_documentos.Carpeta.objects.all().order_by('nombre')
         serializer = self.get_serializer(recent_carpetas, many=True)
         return Response(serializer.data)
+
+def crearCarpeta(request):
+    if requet.method == 'POST':
+        os.mkdir(os.path.join(BASE_DIR + '/Code', request.POST.get('carpeta')))
+        return HttpResponse("Listo xd")

@@ -1,0 +1,492 @@
+* {
+	margin: 0px;
+	font-family: 'Actor', sans-serif !important;
+	padding: 0px;
+}
+
+body, html {
+	width: 100%;
+	height: 100%;
+}
+
+/*font-family: 'Merienda', cursive;*/
+/*font-family: 'Actor', sans-serif;*/
+
+/* Small only */
+@media screen and (max-width: 39.9375em) {
+	
+.section1{
+	width: 100%;
+	height: 100%;
+}
+.sidebar{
+	background-color: #1e272e;
+	padding: 0 !important;
+}
+.logo{
+	margin: 6.6% 0 7.2% 0 !important;
+    width: 100% !important;
+    display: flex;
+    justify-content: center;
+    font-size: small;
+}
+.line {
+	font-family: 'Poppins', sans-serif !important;
+    color: rgb(209, 215, 216);
+    border-right: 2px solid rgba(255, 255, 255, 0.75);
+    font-size: 140%;    
+    white-space: nowrap;
+    overflow: hidden;
+}
+.anim-typewriter {
+      animation: typewriter 2s steps(13) 1s 1 normal both,
+      blinkTextCursor 1000ms steps(13) infinite normal;
+}
+@keyframes typewriter {
+      from {
+            width: 0;
+      }
+      to {
+            width: 4.4em;
+      }
+}
+@keyframes blinkTextCursor {
+      from {
+            border-right-color: rgba(255, 255, 255, 0.75);
+      }
+      to {
+            border-right-color: transparent;
+      }
+}
+.height-selector{
+	height: 4%;
+	padding-top: 2%;
+}
+.files-option{
+	color: white;
+	background-color: #1e272e;
+	height: 100%;
+	/* border-radius: 8px; */
+	display: flex;
+	justify-content: center;
+}
+.shared-option{
+	color: white;
+	background-color: #2d3436;
+	height: 100%;
+	/* border-radius: 8px; */
+	display: flex;
+	justify-content: center;
+}
+
+.files-option:hover{
+	cursor: pointer;
+}
+.shared-option:hover{
+	cursor: pointer;
+}
+
+.files{
+	height: 85.5%;
+	padding: 4.5%;
+}
+.files-text{
+	font-size: 80%;
+	display: flex;
+	align-items: center;
+	margin: 0;
+}
+.files-text:hover{
+	cursor: pointer;
+}
+#sharedFiles{
+	display: none;
+}
+.icons{
+	height: 4%;
+}
+.div-iconos{
+	height: 100%;
+	padding: 1.3% !important;
+	display: flex;
+    justify-content: center;
+    box-sizing: border-box;
+}
+.div-iconos:hover{
+	background-color: #1e272e;
+}
+.imagenes-iconos{
+	width: 40%;
+}
+.imagenes-iconos:hover{
+	cursor: pointer;
+}
+.area{
+	background-color: #2d3436;
+    padding: 0 !important;
+}
+.code{
+	height: 93%;
+}
+.btnRun{
+	height: 5%;
+	display: block;
+}
+.editor{
+	margin: 2% 3% 3% 3%;
+	background-color:  #1e272e;
+	height: calc(100% - 3%);
+	width: calc(100% - 6%);
+	padding: 3%;
+	outline: none;
+}
+.compiler{
+    border-top: solid #707070 2px;
+    height: 30%;
+    background-color: #2d3436;
+    display: none !important;
+}
+.run{
+	height: 90%;
+	background-color: #ABB1BA;
+	cursor: pointer;
+	padding: 0 0.44% 0 0.44% !important;
+}
+.run-elements{
+	padding: 0 !important;
+	display: flex;
+    align-items: center;
+}
+.run-text{
+	font-size: 85%;
+	margin: 0;
+}
+.run-text:hover{
+	font-weight: bolder;
+}
+.run-icon{
+	height: 35%;
+}
+.height-100{
+	height: 100%;
+}
+}
+
+/* Medium and up */
+@media screen and (min-width: 40em) {
+.section1{
+	width: 100%;
+	height: 100%;
+}
+.sidebar{
+	background-color: #1e272e;
+	padding: 0 !important;
+}
+.logo{
+	margin: 6.6% 0 7.2% 0 !important;
+    width: 100% !important;
+    display: flex;
+    justify-content: center;
+    font-size: small;
+}
+.line {
+	font-family: 'Poppins', sans-serif !important;
+    color: #0E90AC;
+    border-right: 2px solid rgba(255, 255, 255, 0.75);
+    font-size: 170%;    
+    white-space: nowrap;
+    overflow: hidden;
+}
+.anim-typewriter {
+      animation: typewriter 2s steps(13) 1s 1 normal both,
+      blinkTextCursor 1000ms steps(13) infinite normal;
+}
+@keyframes typewriter {
+      from {
+            width: 0;
+      }
+      to {
+            width: 4.4em;
+      }
+}
+@keyframes blinkTextCursor {
+      from {
+            border-right-color: rgba(255, 255, 255, 0.75);
+      }
+      to {
+            border-right-color: transparent;
+      }
+}
+.height-selector{
+	height: 4%;
+	padding-top: 2%;
+}
+.files-option{
+	color: white;
+	background-color: #1e272e;
+	height: 100%;
+	/* border-radius: 8px; */
+	display: flex;
+	justify-content: center;
+}
+.shared-option{
+	color: white;
+	background-color: #2d3436;
+	height: 100%;
+	/* border-radius: 8px; */
+	display: flex;
+	justify-content: center;
+}
+
+.files-option:hover{
+	cursor: pointer;
+}
+.shared-option:hover{
+	cursor: pointer;
+}
+
+.files{
+	height: 81.5%;
+	padding: 4.5%;
+}
+.files-text{
+	font-size: 80%;
+	display: flex;
+	align-items: center;
+	margin: 0;
+}
+.files-text:hover{
+	cursor: pointer;
+}
+#sharedFiles{
+	display: none;
+}
+.icons{
+	height: 4%;
+}
+.div-iconos{
+	height: 100%;
+	padding: 1.3% !important;
+	display: flex;
+    justify-content: center;
+    box-sizing: border-box;
+}
+.div-iconos:hover{
+	background-color: #1e272e;
+}
+.imagenes-iconos{
+	width: 40%;
+}
+.imagenes-iconos:hover{
+	cursor: pointer;
+}
+.area{
+	background-color: #2d3436;
+    padding: 0 !important;
+}
+.code{
+	height: 70%;
+}
+.editor{
+	margin: 1.35%;
+	background-color:  #1e272e;
+	height: calc(100% - 6.9%);
+	width: calc(100% - 2.7%);
+	padding: 1%;
+	outline: none;
+}
+.compiler{
+    border-top: solid #707070 2px;
+    height: 30%;
+    background-color: #2d3436;
+}
+.run{
+	height: 13.5%;
+	background-color: #ABB1BA;
+	cursor: pointer;
+	padding: 0 0.44% 0 0.44% !important;
+}
+.run-elements{
+	padding: 0 !important;
+	display: flex;
+    align-items: center;
+}
+.run-text{
+	font-size: 85%;
+	margin: 0;
+}
+.run-text:hover{
+	font-weight: bolder;
+}
+.run-icon{
+	height: 50%;
+}
+.height-100{
+	height: 100%;
+}
+.btnRun{
+	display: none !important;
+}
+}
+
+/* Medium only */
+@media screen and (min-width: 40em) and (max-width: 63.9375em) {}
+
+/* Large and up */
+@media screen and (min-width: 64em) {
+.section1{
+	width: 100%;
+	height: 100%;
+}
+.sidebar{
+	background-color: #1e272e;
+	padding: 0 !important;
+}
+.logo{
+	margin: 6.6% 0 7.2% 0 !important;
+    width: 100% !important;
+    display: flex;
+    justify-content: center;
+}
+.line {
+	font-family: 'Poppins', sans-serif !important;
+    color: #0E90AC;
+    border-right: 2px solid rgba(255, 255, 255, 0.75);
+    font-size: 250%;    
+    white-space: nowrap;
+    overflow: hidden;
+}
+.anim-typewriter {
+      animation: typewriter 2s steps(13) 1s 1 normal both,
+      blinkTextCursor 1000ms steps(13) infinite normal;
+}
+@keyframes typewriter {
+      from {
+            width: 0;
+      }
+      to {
+            width: 4.4em;
+      }
+}
+@keyframes blinkTextCursor {
+      from {
+            border-right-color: rgba(255, 255, 255, 0.75);
+      }
+      to {
+            border-right-color: transparent;
+      }
+}
+.height-selector{
+	height: 4%;
+	padding-top: 2%;
+}
+.files-option{
+	color: white;
+	background-color: #1e272e;
+	height: 100%;
+	/* border-radius: 8px; */
+	display: flex;
+	justify-content: center;
+}
+.shared-option{
+	color: white;
+	background-color: #2d3436;
+	height: 100%;
+	/* border-radius: 8px; */
+	display: flex;
+	justify-content: center;
+}
+
+.files-option:hover{
+	cursor: pointer;
+}
+.shared-option:hover{
+	cursor: pointer;
+}
+
+.files{
+	height: 77.5%;
+	padding: 4.5%;
+}
+.files-text{
+	font-size: 80%;
+	display: flex;
+    align-items: center;
+    margin: 0;
+}
+.files-text:hover{
+	cursor: pointer;
+}
+#sharedFiles{
+	display: none;
+}
+.icons{
+	height: 4%;
+}
+.div-iconos{
+	height: 100%;
+	padding: 1.3% !important;
+	display: flex;
+    justify-content: center;
+    box-sizing: border-box;
+}
+.div-iconos:hover{
+	background-color: #1e272e;
+}
+.imagenes-iconos{
+	width: 40%;
+}
+.imagenes-iconos:hover{
+	cursor: pointer;
+}
+.area{
+	background-color: #2d3436;
+    padding: 0 !important;
+}
+.code{
+	height: 70%;
+}
+.editor{
+	margin: 1.35%;
+	background-color:  #1e272e;
+	height: calc(100% - 6.9%);
+	width: calc(100% - 2.7%);
+    padding: 1%;
+	color: white;
+	outline: none;
+}
+.compiler{
+    border-top: solid #707070 2px;
+    height: 30%;
+    background-color: #2d3436;
+}
+.run{
+	height: 13.5%;
+	background-color: #ABB1BA;
+	cursor: pointer;
+	padding: 0 0.44% 0 0.44% !important;
+}
+.run-elements{
+	padding: 0 !important;
+	display: flex;
+    align-items: center;
+}
+.run-text{
+	font-size: 100%;
+	margin: 0;
+}
+.run-text:hover{
+	font-weight: bolder;
+}
+.run-icon{
+	height: 65%;
+}
+.height-100{
+	height: 100%;
+}
+.btnRun{
+	display: none !important;
+}
+}
+/* Large only */
+@media screen and (min-width: 64em) and (max-width: 74.9375em) {}

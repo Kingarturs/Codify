@@ -24,8 +24,6 @@ logInButton.addEventListener('click', () => {
 			password: password,
 		},
 		success: function(data){
-			alert(data.token);
-			alert(data.user);
 			window.location = "/index";
 		},
 		

@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from rest_framework import viewsets
 from rest_framework.response import Response
 from rest_framework.decorators import action
@@ -8,8 +8,11 @@ from Apps.Accesos import serializers as AccesoSerializers
 
 # Create your views here.
 def login_view(request):
-    return render(request, "login.html")
-
+    if request.session.get('sesion'):
+        return redirect("/index")
+    else:
+        return render(request, "login.html")
+        
 def index_view(request):
     return render(request, "index.html")
 

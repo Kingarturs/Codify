@@ -6,21 +6,33 @@
 	box-sizing: border-box;
 }
 
+html, body{
+	height: 100%;
+	width: 100%;
+}
+
 body {
 	background: #292c30;
 	overflow: hidden;
 	display: flex;
-	justify-content: center;
-	align-items: center;
-	flex-direction: column;
+	flex-wrap: wrap;
+	/* flex-direction: column; */
 	font-family: 'Montserrat', sans-serif;
-	height: 100vh;
-	margin: -20px 0 50px;
 }
 
-h1 {
-	font-weight: bold;
-	margin: 0;
+#main{
+	width: 55%;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	overflow: hidden;
+}
+
+#image{
+	overflow: hidden;
+	height: 100%;
+	width: 45%;
 }
 
 h2 {
@@ -28,25 +40,25 @@ h2 {
 }
 
 p {
-	font-size: 14px;
-	font-weight: 100;
-	line-height: 20px;
-	letter-spacing: 0.5px;
-	margin: 20px 0 30px;
+	font-size: 14px !important;
+	font-weight: 100 !important;
+	line-height: 20px !important;
+	letter-spacing: 0.5px !important;
+	margin: 20px 0 30px !important;
 }
 
 span {
-	font-size: 12px;
+	font-size: 12px !important;
 }
 
-a {
+/* a {
 	color: #333;
 	font-size: 14px;
 	text-decoration: none;
 	margin: 15px 0;
-}
+} */
 
-button {
+.button {
 	border-radius: 20px;
 	border: 1px solid rgb(213, 192, 80);
 	background-color: rgb(213, 192, 80);
@@ -59,15 +71,15 @@ button {
 	transition: transform 80ms ease-in;
 }
 
-button:active {
+.button:active {
 	transform: scale(0.95);
 }
 
-button:focus {
+.button:focus {
 	outline: none;
 }
 
-button.ghost {
+.button.ghost {
 	background-color: transparent;
 	border-color: #FFFFFF;
 }
@@ -228,46 +240,36 @@ input {
 	width: 40px;
 }
 
+/*LOGO ANIMACION*/
 .line {
-	font-family: 'Actor', sans-serif;
-	display: flex;
-	position: relative;
-	height: auto;
-	width: 4em;
-	border-right: 2px solid rgba(43, 43, 43, 0.75);
-	font-size: 450%;
-	text-align: center;
-	align-items: center;
-	white-space: nowrap;
+	font-family: 'Poppins', sans-serif !important;
+    color: #0E90AC;
+    border-right: 2px solid rgba(255, 255, 255, 0.75);
+    font-size: 680%;    
+    white-space: nowrap;
 	overflow: hidden;
-	font-weight: bold;
-	letter-spacing: 3px;
-	transform: translateY(-50%);
-	color: rgb(243, 243, 243);
-	margin-right: -40px;
+	font-weight: 500;
 }
 
-/*Animation*/
-
 .anim-typewriter {
-	animation: typewriter 7s steps(7) 1s infinite normal both,
-	blinkTextCursor 700ms steps(7) infinite normal;
+      animation: typewriter 2s steps(13) 1s 1 normal both,
+      blinkTextCursor 1000ms steps(13) infinite normal;
 }
 
 @keyframes typewriter {
-	0% {
-		  width: 0;
-	}
-	14% {
-		  width: 4em;
-	}
+      from {
+            width: 0;
+      }
+      to {
+            width: 4.4em;
+      }
 }
 
 @keyframes blinkTextCursor {
-	from {
-		  border-right-color: rgba(43, 43, 43, 0.75);
-	}
-	to {
-		  border-right-color: transparent;
-	}
+      from {
+            border-right-color: rgba(255, 255, 255, 0.75);
+      }
+      to {
+            border-right-color: transparent;
+      }
 }

@@ -1,6 +1,8 @@
+{% include 'navbar.html' %}
 {% load staticfiles %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,46 +12,55 @@
     <link rel="stylesheet" href="{% static 'css/login.css' %}">
     <title>Codify - Login</title>
 </head>
+
 <body>
-    <span class="line anim-typewriter">Codify( )</span>
+    {% block content %}
     <!-- <br> -->
-    <div class="container" id="container">
-        <div class="form-container sign-up-container">
-            <div class="form">
-                <h1>Create Account</h1>
-                <br>
-                <input type="text" placeholder="Name" />
-                <input type="email" placeholder="Email" />
-                <input type="password" placeholder="Password" />
-                <br>
-                <button>Sign Up</button>
-            </div>
-        </div>
-        <div class="form-container sign-in-container">
-            <div class="form">
-                <h1>Log in</h1>
-                <br>
-                <input id="emailIn" type="text" placeholder="Email" />
-                <input id="passwordIn" type="password" placeholder="Password" />
-                <!-- <a href="#">Forgot your password?</a> -->
-                <br>
-                <button id="logIn">Sign In</button>
-            </div>
-        </div>
-        <div class="overlay-container">
-            <div class="overlay">
-                <div class="overlay-panel overlay-left">
-                    <h1>Already registered?</h1>
-                    <p>Welcome back! Click below to sign in with your account</p>
-                    <button class="ghost" id="signIn">Sign In</button>
+    <div id="image">
+        <img src="{% static 'img/code.jpg' %}" alt="" height="100%">
+    </div>
+    <div id="main">
+        <div class="container" id="container">
+            <div class="form-container sign-up-container">
+                <div class="form">
+                    <h1>Create Account</h1>
+                    <br>
+                    <input type="text" placeholder="Name" />
+                    <input type="email" placeholder="Email" />
+                    <input type="password" placeholder="Password" />
+                    <br>
+                    <button class="button">Sign Up</button>
                 </div>
-                <div class="overlay-panel overlay-right">
-                    <h1>Hello there!</h1>
-                    <p>Enter your personal details and start coding with <span style="font-weight: bold; font-size: 15px;">Codify</span> right now!</p>
-                    <button class="ghost" id="signUp">Sign Up</button>
+            </div>
+            <div class="form-container sign-in-container">
+                <div class="form">
+                    <h1>Log in</h1>
+                    <br>
+                    <input id="emailIn" type="text" placeholder="Email" />
+                    <input id="passwordIn" type="password" placeholder="Password" />
+                    <!-- <a href="#">Forgot your password?</a> -->
+                    <br>
+                    <button id="logIn" class="button">Sign In</button>
+                </div>
+            </div>
+            <div class="overlay-container">
+                <div class="overlay">
+                    <div class="overlay-panel overlay-left">
+                        <h1>Already registered?</h1>
+                        <p>Welcome back! Click below to sign in with your account</p>
+                        <button class="ghost button" id="signIn">Sign In</button>
+                    </div>
+                    <div class="overlay-panel overlay-right">
+                        <h1>Hello there!</h1>
+                        <p>Enter your personal details and start coding with <span
+                                style="font-weight: bold; font-size: 15px;">Codify</span> right now!</p>
+                        <button class="ghost button" id="signUp">Sign Up</button>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+    {% endblock %}
 </body>
+
 </html>

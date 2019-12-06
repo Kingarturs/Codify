@@ -17,14 +17,13 @@ class DocumentConsumer(AsyncConsumer):
         # await self.send({
         #     "type":"websocket.close",
         # })
-        documento = self.scope['url_route']['kwargs']['documento']
+        # documento = self.scope['url_route']['kwargs']['documento']
         user = self.scope['user']
-
-        print("El usuario '", user, "' quiere acceder al documento: ", documento)
+        print(user)
 
         await self.send({
             "type":"websocket.send",
-            "text": "Hola mundo",
+            "text": "user",
         })
 
     async def websocket_receive(self, event):

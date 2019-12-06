@@ -1,16 +1,16 @@
+{% include 'navbar.html' %}
 {% load staticfiles %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
 	<title>Codify</title>
-
 	<link rel="stylesheet" href="{% static 'css/styles.css' %}">
 	<link rel="stylesheet" href="{% static 'css/app.css' %}">
 	<link rel="stylesheet" href="{% static 'css/foundation.css' %}">
 	<link rel="stylesheet" href="{% static 'css/foundation.min.css' %}">
 
-	<link href="https://fonts.googleapis.com/css?family=Merienda&display=swap" rel="stylesheet"> 
+	<link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Actor&display=swap" rel="stylesheet"> 
 	<link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet"> 
 
@@ -29,14 +29,16 @@
 	<script defer type="text/javascript" src="{% static 'js/particles.js '%}"></script>
 
 </head>
+
 <body>
 	<div id="particles-js"></div>
+	{% block content %}
 	
 	<!-- Pantalla de Bienvenida - Móvil -->	
 	<div class="bienvenida height-100 width-100 show-for-small-only hasFlex" style="position: absolute; z-index: 3; background-image: radial-gradient(#021027, #000000);">
 		<div class="row small-12 show-for-small-only">
 			<div class="columns small-12 align-middle align-center hasFlex">	
-				<h1 class="line anim-typewriter" style="font-size: 4em;">Codify( )</h1>
+				<h1 class="line anim-typewriter" style="font-size: 4em; color: rgb(240, 240, 240);">Codify( )</h1>
 			</div>			
 		</div>		
 	</div>
@@ -92,7 +94,7 @@
 
 							<!-- Título, descripción y boton START NOW - Web -->
 							<div class="columns large-12 no-padding hide-for-small-only">
-								<h1 class="line anim-typewriter">Codify( )</h1>
+								<h1 class="line anim-typewriter" style="color: rgb(218, 199, 30);">Codify( )</h1>
 							</div>							
 							<div class="columns large-12 no-padding description hide-for-small-only">
 								<p>Code in real time using Python or JavaScript and work online with anyone, anywhere, anytime!</p>
@@ -122,6 +124,7 @@
 			</div>
 		</div>	
 	</section>
-	
+	{% endblock content %}
 </body>
+
 </html>

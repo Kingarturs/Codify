@@ -31,9 +31,17 @@ def login(request):
     user = authenticate(username=username, password=password)
     if not user:
         return Response({"Error":"Credenciales no válidas"}, status = HTTP_400_BAD_REQUEST)
+    else:
+        token, _ = Token.objects.get_or_create(user=user)
+        request.session['sesion'] = user.id
+        return Response({"token":token.key, "user":user.id}, status=HTTP_200_OK)
 
-    token, _ = Token.objects.get_or_create(user=user)
-    return Response({"token":token.key, "user":user.id}, status=HTTP_200_OK)
+def logout(request):
+    try:
+        del request.session['sesion']
+    except KeyError:
+        pass
+    return redirect("/")
 
 class UserViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all()

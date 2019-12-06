@@ -2,23 +2,20 @@
 	margin: 0px;
 	padding: 0px;
 	box-sizing: border-box;
-	font-family: 'Actor', sans-serif;
+	font-family: 'Montserrat', sans-serif;
 }
 
 body, html {
 	width: 100%;
 	height: 100%;
-	font-family: 'Actor', sans-serif;
-	overflow: hidden;
+	font-family: 'Montserrat', sans-serif;
 }
 
 /*font-family: 'Merienda', cursive;*/
 /*font-family: 'Actor', sans-serif;*/
+/*font-family: 'Poppins', sans-serif;*/
 
-#navBar{
-	background: #2f3640;
-}
-
+/*Estilos Universales*/
 .altura-69 {
 	height: 69px;
 }
@@ -87,7 +84,6 @@ body, html {
 @media screen and (max-width: 39.9375em) {
 
 /*Animación de Bienvenida */
-
 .bienvenida {
     -webkit-animation: cssAnimation 0s ease-in 5s forwards;
     -moz-animation: cssAnimation 0s ease-in 5s forwards;
@@ -95,6 +91,10 @@ body, html {
     animation: cssAnimation 0s ease-in 5s forwards;
     -webkit-animation-fill-mode: forwards;
     animation-fill-mode: forwards;
+
+    position: absolute;
+    z-index: 3;
+    background-image: radial-gradient(#021027, #000000);
 }
 
 @keyframes cssAnimation {
@@ -110,8 +110,7 @@ body, html {
 
 /*////////////////*/
 
-/*Div Sign Up & Login*/
-
+/*Sign Up & Login*/
 .signUpStyles {
 	background-color: #FFFFFF;
 	display: flex;
@@ -122,7 +121,6 @@ body, html {
 	height: 100%;
 	text-align: center;
 }
-
 	.signUpStyles h1 {
 		font-weight: bold;
 		margin: 0;
@@ -362,20 +360,17 @@ button.ghost {
 }
 
 .section1 {
-	/*background-color: #2f3640;*/
 	background-image: radial-gradient(#021027, #000000);
 	background-size: cover;
 	width: 100%;
 
 	border-left: none;
     border-right: none;
-    /*border-top: solid #707070 2px;*/
     border-top: none;
     border-bottom: none;
 }
 
 /*Pantalla Welcome*/
-
 .sectionWelcome {
 	margin: 0;
   	background-image: radial-gradient(#021027, #000000);
@@ -396,17 +391,11 @@ button.ghost {
 	margin-left: 1.3em;
 }
 
-.registrar {
-	font-size: 0.9em !important;
-	margin-right: 1em !important;
-}
-
-.iniciarSesion {
+.comenzar {
 	font-size: 0.9em !important;
 }
 
 /*LOGO ANIMACION*/
-
 .line {
 	font-family: 'Poppins', sans-serif !important;
     color: #0E90AC;
@@ -417,26 +406,26 @@ button.ghost {
 }
 
 .anim-typewriter {
-      animation: typewriter 2s steps(13) 1s 1 normal both,
-      blinkTextCursor 1000ms steps(13) infinite normal;
+    animation: typewriter 2s steps(13) 1s 1 normal both,
+    blinkTextCursor 1000ms steps(13) infinite normal;
 }
 
 @keyframes typewriter {
-      from {
-            width: 0;
-      }
-      to {
-            width: 4.4em;
-      }
+    from {
+        width: 0;
+    }
+    to {
+        width: 4.4em;
+    }
 }
 
 @keyframes blinkTextCursor {
-      from {
-            border-right-color: rgba(255, 255, 255, 0.75);
-      }
-      to {
-            border-right-color: transparent;
-      }
+    from {
+        border-right-color: rgba(255, 255, 255, 0.75);
+    }
+    to {
+        border-right-color: transparent;
+    }
 }
 
 /*//////////////////*/
@@ -458,30 +447,7 @@ button.ghost {
     white-space: nowrap;
     z-index: 2;
     cursor: pointer;
-}  
-
-.hbtn i {
-    padding-right: 8px;
-}  
-
-.hb-fill-on::before {
-    position: absolute;
-    content: "";
-    background: #FFFFFF none repeat scroll 0% 0%;
-    transition-duration: 0.3s;
-    z-index: -1;
-    inset: 0px auto auto 0px;
-    width: 100%;
-    height: 100%;
-    opacity: 0;
-} 
- 
-.hb-fill-on:hover::before {
-    width: 100%;
-    height: 100%;
-    opacity: 1;
-} 
- 
+}   
 
 .hb-fill-on:hover {
     color: rgb(0, 0, 0);
@@ -545,13 +511,17 @@ canvas {
 	}
 }
 
+.orbit-controls button {
+	cursor: pointer;
+	z-index: 2;
+}
+
 }
 
 /* Medium and up */
 @media screen and (min-width: 40em) {
 
-/*Div Sign Up & Login*/
-
+/*Sign Up & Login*/
 .signUpStyles {
 	background-color: #FFFFFF;
 	display: flex;
@@ -562,7 +532,6 @@ canvas {
 	height: 100%;
 	text-align: center;
 }
-
 	.signUpStyles h1 {
 		font-weight: bold;
 		margin: 0;
@@ -604,7 +573,6 @@ canvas {
 	height: 100%;
 	text-align: center;
 }
-
 	.signInStyles h1 {
 		font-weight: bold;
 		margin: 0;
@@ -797,20 +765,17 @@ button.ghost {
 }
 
 .section1 {
-	/*background-color: #2f3640;*/
 	background-image: radial-gradient(#021027, #000000);
 	background-size: cover;
 	width: 100%;
 
 	border-left: none;
     border-right: none;
-    /*border-top: solid #707070 2px;*/
     border-top: none;
     border-bottom: none;
 }
 
 /*Pantalla Welcome*/
-
 .sectionWelcome {
 	margin: 0;
   	background-image: radial-gradient(#021027, #000000);
@@ -826,7 +791,6 @@ button.ghost {
 }
 
 /*LOGO ANIMACION*/
-
 .line {
 	font-family: 'Poppins', sans-serif !important;
     color: #0E90AC;
@@ -873,10 +837,10 @@ button.ghost {
 }
 	.startNow button {
 		font-size: 1.5em;
+		margin-top: 40px;
 	}
 
 /*//////////// BOTONES ////////////////*/
-
 .hbtn {
     position: relative;
     font-size: 1.2em;
@@ -894,29 +858,6 @@ button.ghost {
     cursor: pointer;
 }  
 
-.hbtn i {
-    padding-right: 8px;
-}  
-
-.hb-fill-on::before {
-    position: absolute;
-    content: "";
-    background: #16ba9e none repeat scroll 0% 0%;
-    transition-duration: 0.3s;
-    z-index: -1;
-    inset: 0px auto auto 0px;
-    width: 100%;
-    height: 100%;
-    opacity: 0;
-} 
- 
-.hb-fill-on:hover::before {
-    width: 100%;
-    height: 100%;
-    opacity: 1;
-} 
- 
-
 .hb-fill-on:hover {
     color: rgb(0, 0, 0);
     background: rgb(255, 255, 255) none repeat scroll 0% 0%;
@@ -924,7 +865,6 @@ button.ghost {
 } 
 
 /*//////////////////////*/
-
 #particles-js {
   	position: absolute;
   	width: 100%;
@@ -987,8 +927,7 @@ canvas {
 /* Large and up */
 @media screen and (min-width: 64em) {
 
-/*Div Sign Up & Login*/
-
+/*Sign Up & Login*/
 .signUpStyles {
 	background-color: #FFFFFF;
 	display: flex;
@@ -999,7 +938,6 @@ canvas {
 	height: 100%;
 	text-align: center;
 }
-
 	.signUpStyles h1 {
 		font-weight: bold;
 		margin: 0;
@@ -1237,20 +1175,17 @@ button.ghost {
 }
 
 .section1 {
-	/*background-color: #2f3640;*/
 	background-image: radial-gradient(#021027, #000000);
 	background-size: cover;
 	width: 100%;
 
 	border-left: none;
     border-right: none;
-    /*border-top: solid #707070 2px;*/
     border-top: none;
     border-bottom: none;
 }
 
 /*Pantalla Welcome*/
-
 .sectionWelcome {
 	margin: 0;
   	background-image: radial-gradient(#021027, #000000);
@@ -1266,7 +1201,6 @@ button.ghost {
 }
 
 /*LOGO ANIMACION*/
-
 .line {
 	font-family: 'Poppins', sans-serif !important;
     color: #0E90AC;
@@ -1277,26 +1211,26 @@ button.ghost {
 }
 
 .anim-typewriter {
-      animation: typewriter 2s steps(13) 1s 1 normal both,
-      blinkTextCursor 1000ms steps(13) infinite normal;
+    animation: typewriter 2s steps(13) 1s 1 normal both,
+    blinkTextCursor 1000ms steps(13) infinite normal;
 }
 
 @keyframes typewriter {
-      from {
-            width: 0;
-      }
-      to {
-            width: 4.4em;
-      }
+    from {
+        width: 0;
+    }
+    to {
+        width: 4.4em;
+    }
 }
 
 @keyframes blinkTextCursor {
-      from {
-            border-right-color: rgba(255, 255, 255, 0.75);
-      }
-      to {
-            border-right-color: transparent;
-      }
+    from {
+        border-right-color: rgba(255, 255, 255, 0.75);
+    }
+    to {
+        border-right-color: transparent;
+    }
 }
 
 /*//////////////////*/
@@ -1316,7 +1250,6 @@ button.ghost {
 	}
 
 /*//////////// BOTONES ////////////////*/
-
 .hbtn {
     position: relative;
     font-size: 1.2em;
@@ -1334,37 +1267,13 @@ button.ghost {
     cursor: pointer;
 }  
 
-.hbtn i {
-    padding-right: 8px;
-}  
-
-.hb-fill-on::before {
-    position: absolute;
-    content: "";
-    background: #FFFFFF none repeat scroll 0% 0%;
-    transition-duration: 0.3s;
-    z-index: -1;
-    inset: 0px auto auto 0px;
-    width: 100%;
-    height: 100%;
-    opacity: 0;
-} 
- 
-.hb-fill-on:hover::before {
-      width: 100%;
-      height: 100%;
-      opacity: 1;
-} 
- 
-
 .hb-fill-on:hover {
-      color: rgb(0, 0, 0);
-      background: rgb(255, 255, 255) none repeat scroll 0% 0%;
-      transition: color 0.3s ease 0s, background 0s ease 0.3s;
+    color: rgb(0, 0, 0);
+    background: rgb(255, 255, 255) none repeat scroll 0% 0%;
+    transition: color 0.3s ease 0s, background 0s ease 0.3s;
 } 
 
 /*//////////////////////*/
-
 #particles-js {
   	position: absolute;
   	width: 100%;
@@ -1383,7 +1292,6 @@ canvas {
 
 .python {
 	overflow: hidden;
-	/*box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);*/
 	transform: translatey(0px);
 	animation: float 6s ease-in-out infinite;
 	width: 30%;
@@ -1396,7 +1304,6 @@ canvas {
 
 .javascript {
 	overflow: hidden;
-	/*box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);*/
 	transform: translatey(0px);
 	animation: float 6s ease-in-out infinite;
 	width: 30%;
@@ -1404,15 +1311,12 @@ canvas {
 
 @keyframes float {
 	0% {
-		/*box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);*/
 		transform: translatey(0px);
 	}
 	50% {
-		/*box-shadow: 0 25px 15px 0px rgba(0,0,0,0.2);*/
 		transform: translatey(-20px);
 	}
 	100% {
-		/*box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);*/
 		transform: translatey(0px);
 	}
 }
