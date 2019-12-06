@@ -68,7 +68,7 @@
 				</div>
 			</div>
 			<div class="row expanded compiler">
-				<div class="columns large-1 medium-1 large-offset-11 medium-offset-11 run">
+				<div class="columns large-1 medium-1 large-offset-11 medium-offset-11 run" id="correr">
 					<div class="row expanded height-100">
 						<div class="columns large-6 medium-6 large-offset-2  medium-offset-2 run-elements height-100">
 							<h5 class="run-text">Run</h5>
@@ -78,6 +78,17 @@
 						</div>
 					</div>
 				</div>
+				<div class="columns large-1 medium-1 large-offset-11 medium-offset-11 run" id="descargar">
+						<div class="row expanded height-100">
+							<div class="columns large-6 medium-6 large-offset-2  medium-offset-2 run-elements height-100">
+								<h5 class="run-text">Descargar</h5>
+							</div>
+							<div class="run-elements columns large-3 medium-3 height-100">
+								<img class="run-icon" src="{% static 'img/run.svg' %}">
+							</div>
+						</div>
+					</div>
+				<div id="consola"></div>
 			</div>
 		</div>
 	</section>

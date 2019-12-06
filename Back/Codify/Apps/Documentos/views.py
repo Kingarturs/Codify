@@ -18,8 +18,37 @@ from Apps.Documentos import models as models_documentos
 from Apps.Documentos import serializers as DocumentoSerializers
 import os
 from django.http import HttpResponse
+from django.shortcuts import render
+from django.http import HttpResponse
+import os
+import io
+import subprocess
+from django.utils.encoding import smart_str
+from django.http import HttpResponse
+from wsgiref.util import FileWrapper
+from django.views.decorators.csrf import csrf_exempt
 
-# Create your views here.
+@csrf_exempt
+def codigo(request):
+    if request.method == 'POST':
+        # print(request.POST.get("codigo"))
+        with io.open("Code/user1/Untitled.py", 'w', encoding='utf8') as f:
+            f.write(request.POST.get("codigo").replace(u'\xa0', u' '))
+        exec_command = subprocess.Popen("python Code/user1/Untitled.py", stdout=subprocess.PIPE)
+        # with io.open(ruta, 'r', encoding='utf8') as f:
+        #    text = f.read()
+        return HttpResponse(exec_command.stdout.read())
+
+@csrf_exempt
+def descargar(request):
+    filename = "Code/user1/Untitled.py"
+    with io.open(filename, 'r', encoding='utf8') as f:
+        text = f.read()
+    response = HttpResponse(text,content_type ='application/force-download') # mimetype is replaced by content_type for django 1.7
+    response['Content-Disposition'] = 'attachment; filename=%s' % smart_str(filename)
+    response['X-Sendfile'] = smart_str("Code/user1/")
+    return response
+
 class DocumentoViewSet(viewsets.ModelViewSet):
     queryset = models_documentos.Documento.objects.all()
     serializer_class = DocumentoSerializers.DocumentoSerializer

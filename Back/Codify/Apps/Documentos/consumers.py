@@ -13,11 +13,6 @@ class DocumentConsumer(AsyncConsumer):
             "type":"websocket.accept",
         })
 
-        # await asyncio.sleep(10)
-        # await self.send({
-        #     "type":"websocket.close",
-        # })
-        # documento = self.scope['url_route']['kwargs']['documento']
         user = self.scope['user']
         print(user)
 

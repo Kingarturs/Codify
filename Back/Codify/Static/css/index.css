@@ -458,7 +458,9 @@ body, html {
 .compiler{
     border-top: solid #707070 2px;
     height: 30%;
-    background-color: #2d3436;
+	background-color: #2d3436;
+	padding: 20px;
+	color: white;
 }
 .run{
 	height: 13.5%;

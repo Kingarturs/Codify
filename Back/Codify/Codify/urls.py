@@ -34,4 +34,6 @@ urlpatterns = [
     path('index/', views_accesos.index_view),
     path('index/crearCarpeta', views_documentos.crearCarpeta),
     path('index/logout', views_REST.logout),
+    path('index/codigo', views_documentos.codigo),
+    path('index/descargar', views_documentos.descargar),
 ]
