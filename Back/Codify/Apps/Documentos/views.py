@@ -83,3 +83,7 @@ def crearCarpeta(request):
     if requet.method == 'POST':
         os.mkdir(os.path.join(BASE_DIR + '/Code', request.POST.get('carpeta')))
         return HttpResponse("Listo xd")
+@csrf_exempt
+def mkdir(request):
+    usuario = request.POST.get("user")
+    os.mkdir("Code/%s"%usuario)
