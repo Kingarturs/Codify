@@ -28,7 +28,7 @@ def login(request):
     password = request.data.get('password')
     if username is None or password is None:
         return Response({"Error":"Favor de completar los campos"}, status = HTTP_404_NOT_FOUND)
-    user = authenticate(username=username, password=password)
+    user = User.objects.filter(username=username, password=password).first()
     if not user:
         return Response({"Error":"Credenciales no válidas"}, status = HTTP_400_BAD_REQUEST)
     else:
@@ -43,6 +43,7 @@ def logout(request):
         pass
     return redirect("/")
 
+@permission_classes((AllowAny,))
 class UserViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all()
     serializer_class = UserSerializer

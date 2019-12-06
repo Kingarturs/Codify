@@ -1,6 +1,7 @@
 const signUpButton = document.getElementById('signUp');
 const signInButton = document.getElementById('signIn');
 const logInButton = document.getElementById('logIn');
+const registro = document.getElementById('registro');
 const container = document.getElementById('container');
 
 signUpButton.addEventListener('click', () => {
@@ -25,6 +26,27 @@ logInButton.addEventListener('click', () => {
 		},
 		success: function(data){
 			window.location = "/index";
+		},
+		
+	});
+});
+
+registro.addEventListener('click', () => {
+
+	username = document.getElementById("registroName").value;
+	email = document.getElementById("registroEmail").value;
+	password = document.getElementById("registroPassword").value;
+
+	$.ajax({
+		method: "POST",
+		url: "http://localhost:8000/rest/users/",
+		data: {
+			username: username,
+			email: email,
+			password: password,
+		},
+		success: function(data){
+			window.location = "/login";
 		},
 		
 	});
