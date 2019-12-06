@@ -13,8 +13,12 @@ class DocumentConsumer(AsyncConsumer):
             "type":"websocket.accept",
         })
 
-        user = self.scope['user']
-        print(user)
+        # await asyncio.sleep(10)
+        # await self.send({
+        #     "type":"websocket.close",
+        # })
+        username = self.scope['user']
+        print(username)
 
         await self.send({
             "type":"websocket.send",
@@ -22,7 +26,12 @@ class DocumentConsumer(AsyncConsumer):
         })
 
     async def websocket_receive(self, event):
-        print("Recibir", event)
+        texto = event['text'].replace(u'\xa0', u' ')
+        await self.send({
+            "type":"websocket.send",
+            "text": texto,
+        })
+
     
     async def websocket_disconnect(self, event):
-        print("Deconectado", event)
+        print("Deconectado", event) 
