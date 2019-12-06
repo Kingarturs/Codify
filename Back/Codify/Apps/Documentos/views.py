@@ -32,12 +32,21 @@ from django.views.decorators.csrf import csrf_exempt
 def codigo(request):
     if request.method == 'POST':
         # print(request.POST.get("codigo"))
-        with io.open("Code/user1/Untitled.py", 'w', encoding='utf8') as f:
-            f.write(request.POST.get("codigo").replace(u'\xa0', u' '))
-        exec_command = subprocess.Popen("python Code/user1/Untitled.py", stdout=subprocess.PIPE)
-        # with io.open(ruta, 'r', encoding='utf8') as f:
-        #    text = f.read()
-        return HttpResponse(exec_command.stdout.read())
+        try:
+            with io.open("Code/user1/Untitled.py", 'w', encoding='utf8') as f:
+                f.write(request.POST.get("codigo").replace(u'\xa0', u' '))
+            exec_command = subprocess.Popen("python Code/user1/Untitled.py", stdout=subprocess.PIPE)
+            # with io.open(ruta, 'r', encoding='utf8') as f:
+            #    text = f.read()
+            return HttpResponse(exec_command.stdout.read())
+        except:
+            os.mkdir("Code/user1")
+            with io.open("Code/user1/Untitled.py", 'w', encoding='utf8') as f:
+                f.write(request.POST.get("codigo").replace(u'\xa0', u' '))
+            exec_command = subprocess.Popen("python Code/user1/Untitled.py", stdout=subprocess.PIPE)
+            # with io.open(ruta, 'r', encoding='utf8') as f:
+            #    text = f.read()
+            return HttpResponse(exec_command.stdout.read())
 
 @csrf_exempt
 def descargar(request):
@@ -47,6 +56,7 @@ def descargar(request):
     response = HttpResponse(text,content_type ='application/force-download') # mimetype is replaced by content_type for django 1.7
     response['Content-Disposition'] = 'attachment; filename=%s' % smart_str(filename)
     response['X-Sendfile'] = smart_str("Code/user1/")
+    print(response)
     return response
 
 class DocumentoViewSet(viewsets.ModelViewSet):

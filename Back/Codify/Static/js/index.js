@@ -413,16 +413,6 @@ var keywords = [
         });
     }
     function descargar(){
-        
-        $.ajax({
-            type:'POST',
-            url:'descargar',
-            data:{
-                // csrfmiddlewaretoken:$('input[name=csrfmiddlewaretoken]').val(),
-                action: 'post'
-            },
-            success:function(data){
-            },
-        });
+        window.open("descargar")
     }
     
