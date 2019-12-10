@@ -7,8 +7,10 @@ from rest_framework.decorators import action
 from django.contrib.auth import authenticate
 from django.views.decorators.csrf import csrf_exempt
 from rest_framework.authtoken.models import Token
+from django.contrib.auth.models import User
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework.permissions import AllowAny
+from django.http import JsonResponse
 from rest_framework.status import (
     HTTP_400_BAD_REQUEST,
     HTTP_404_NOT_FOUND,
@@ -31,19 +33,21 @@ from django.views.decorators.csrf import csrf_exempt
 @csrf_exempt
 def codigo(request):
     if request.method == 'POST':
-        # print(request.POST.get("codigo"))
-        try:
-            with io.open("Code/user1/Untitled.py", 'w', encoding='utf8') as f:
-                f.write(request.POST.get("codigo").replace(u'\xa0', u' '))
-            exec_command = subprocess.Popen("python Code/user1/Untitled.py", stdout=subprocess.PIPE)
+    # print(request.POST.get("codigo"))
+        code = request.POST.get("codigo").replace(u'\xa0', u' ')
+        dir = request.POST.get("dir")
+        estado = request.POST.get("estado")
+        if(dir == ""):
+            with io.open("Code/%s/%s"%(request.session['sesion'],estado), 'w', encoding='utf8') as f:
+                f.write(code)
+            exec_command = subprocess.Popen("python Code/%s/%s"%(request.session['sesion'],estado), stdout=subprocess.PIPE)
             # with io.open(ruta, 'r', encoding='utf8') as f:
             #    text = f.read()
             return HttpResponse(exec_command.stdout.read())
-        except:
-            os.mkdir("Code/user1")
-            with io.open("Code/user1/Untitled.py", 'w', encoding='utf8') as f:
-                f.write(request.POST.get("codigo").replace(u'\xa0', u' '))
-            exec_command = subprocess.Popen("python Code/user1/Untitled.py", stdout=subprocess.PIPE)
+        else:
+            with io.open("Code/%s/%s/%s"%(request.session['sesion'],dir,estado), 'w', encoding='utf8') as f:
+                f.write(code)
+            exec_command = subprocess.Popen("python Code/%s/%s/%s"%(request.session['sesion'],dir,estado), stdout=subprocess.PIPE)
             # with io.open(ruta, 'r', encoding='utf8') as f:
             #    text = f.read()
             return HttpResponse(exec_command.stdout.read())
@@ -56,7 +60,6 @@ def descargar(request):
     response = HttpResponse(text,content_type ='application/force-download') # mimetype is replaced by content_type for django 1.7
     response['Content-Disposition'] = 'attachment; filename=%s' % smart_str(filename)
     response['X-Sendfile'] = smart_str("Code/user1/")
-    print(response)
     return response
 
 class DocumentoViewSet(viewsets.ModelViewSet):
@@ -86,4 +89,84 @@ def crearCarpeta(request):
 @csrf_exempt
 def mkdir(request):
     usuario = request.POST.get("user")
-    os.mkdir("Code/%s"%usuario)
+    try:
+        os.listdir("Code/%s"%usuario)
+    except:
+        os.mkdir("Code/%s"%usuario)
+        with io.open("Code/%s/main.py"%usuario, 'w', encoding='utf8') as f:
+                f.write("print('hola mundo')")
+@csrf_exempt
+def carpeta(request):
+    nombre = request.POST.get("nombre")
+    dirs = os.listdir("code/%s"%request.session['sesion'])
+    if not (nombre in dirs):
+        os.mkdir("code/%s/%s"%(request.session['sesion'],nombre))
+        carpetas = {}
+        for base, dirs, files in os.walk("code/%s"%request.session['sesion']):
+            for i in dirs:
+                carpetas[i] = os.listdir("code/%s/%s"%(request.session['sesion'],i))
+            carpetas[""] = files
+            break
+        return JsonResponse(carpetas, safe=False)
+    else:
+        return HttpResponse("La carpeta ya existe")
+@csrf_exempt
+def archivo(request):
+    nombre = request.POST.get("nombre")
+    directorio = request.POST.get("directorio")
+    tipo = request.POST.get("tipo")
+    if tipo =="Python":
+        if directorio != "":
+            with io.open("Code/%s/%s/%s.py"%(request.session['sesion'],directorio,nombre), 'w', encoding='utf8') as f:
+                    f.write("")
+            carpetas = {}
+            for base, dirs, files in os.walk("code/%s"%request.session['sesion']):
+                for i in dirs:
+                    carpetas[i] = os.listdir("code/%s/%s"%(request.session['sesion'],i))
+                carpetas[""] = files
+                break
+            return JsonResponse(carpetas, safe=False)
+        else:
+            with io.open("Code/%s/%s.py"%(request.session['sesion'],nombre), 'w', encoding='utf8') as f:
+                    f.write("")
+            carpetas = {}
+            for base, dirs, files in os.walk("code/%s"%request.session['sesion']):
+                for i in dirs:
+                    carpetas[i] = os.listdir("code/%s/%s"%(request.session['sesion'],i))
+                carpetas[""] = files
+                break
+            return JsonResponse(carpetas, safe=False)
+    else:
+        if directorio != "":
+            with io.open("Code/%s/%s/%s.js"%(request.session['sesion'],directorio,nombre), 'w', encoding='utf8') as f:
+                    f.write("")
+            carpetas = {}
+            for base, dirs, files in os.walk("code/%s"%request.session['sesion']):
+                for i in dirs:
+                    carpetas[i] = os.listdir("code/%s/%s"%(request.session['sesion'],i))
+                carpetas[""] = files
+                break
+            return JsonResponse(carpetas, safe=False)
+        else:
+            with io.open("Code/%s/%s.js"%(request.session['sesion'],nombre), 'w', encoding='utf8') as f:
+                    f.write("")
+            carpetas = {}
+            for base, dirs, files in os.walk("code/%s"%request.session['sesion']):
+                for i in dirs:
+                    carpetas[i] = os.listdir("code/%s/%s"%(request.session['sesion'],i))
+                carpetas[""] = files
+                break
+            return JsonResponse(carpetas, safe=False)
+@csrf_exempt
+def getCodigo(request):
+    nombre = request.POST.get("nombre")
+    dir = request.POST.get("dir")
+    if dir == "":
+        with io.open("code/%s/%s"%(request.session['sesion'],nombre), 'r', encoding='utf8') as f:
+            text = f.read()
+            return HttpResponse(text)
+    else:
+        with io.open("code/%s/%s/%s"%(request.session['sesion'],dir,nombre), 'r', encoding='utf8') as f:
+            text = f.read()
+            return HttpResponse(text)
+    

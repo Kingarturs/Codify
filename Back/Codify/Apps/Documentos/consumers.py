@@ -3,9 +3,9 @@ import json
 from django.contrib.auth import get_user_model
 from channels.consumer import AsyncConsumer
 from channels.db import database_sync_to_async
+from django.contrib.auth.models import User
 from .models import Documento, Carpeta
-
-
+import channels
 class DocumentConsumer(AsyncConsumer):
     async def websocket_connect(self, event):
         print("connected", event)
@@ -17,9 +17,7 @@ class DocumentConsumer(AsyncConsumer):
         # await self.send({
         #     "type":"websocket.close",
         # })
-        username = self.scope['user']
-        print(username)
-
+        username = self.scope['session']['sesion']
         await self.send({
             "type":"websocket.send",
             "text": "user",
@@ -29,7 +27,7 @@ class DocumentConsumer(AsyncConsumer):
         texto = event['text'].replace(u'\xa0', u' ')
         await self.send({
             "type":"websocket.send",
-            "text": texto,
+            "text": texto + str(self.scope['user']),
         })
 
     

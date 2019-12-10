@@ -58,11 +58,27 @@ function showPersonal() {
 
 
 function crearCarpeta(){
-    alert("Crear carpeta");
+    document.getElementById("makeCarpeta").style.display = "block";
+    $("#makeCarpeta").animate({top:"30%",height: "30%", width: "30%"},250);
 }
 
 function crearArchivo(){
-    alert("Crear archivo");
+    base = document.getElementById("myFiles").children[0].children
+    document.getElementById("raiz").innerHTML = "";
+    temp = document.createElement("option");
+    temp.getAttribute("value", "");
+    temp.appendChild(document.createTextNode(""));
+    document.getElementById("raiz").appendChild(temp);
+    for(var i =0;i<base.length;i++){
+        if(base[i].id!=""){
+            temp = document.createElement("option");
+            temp.getAttribute("value", base[i].id.slice(0,-2));
+            temp.appendChild(document.createTextNode(base[i].id.slice(0,-2)));
+            document.getElementById("raiz").appendChild(temp);
+        }
+    }
+    document.getElementById("makeArchivo").style.display = "block";
+    $("#makeArchivo").animate({top:"30%",height: "30%", width: "30%"},250);
 }
 
 function notificaciones(){
@@ -81,7 +97,105 @@ function actualizar(){
     }
     socket.send(contenido);
 }
-
+function makeArchivo(){
+    nombre = $("#makeArchivo").children()[0].value;
+    directorio = $("#makeArchivo").children()[1].value;
+    tipo = $("#makeArchivo").children()[2].value; 
+    $.ajax({
+        type:'POST',
+        url:'archivo',
+        data:{
+            nombre: nombre,
+            directorio:directorio,
+            tipo:tipo
+        },
+        success:function(data){
+            cargar(data);
+        },
+    });
+}
+function makeCarpeta(){
+    nombre = $("#makeCarpeta").children()[0].value;
+    $.ajax({
+        type:'POST',
+        url:'carpeta',
+        data:{
+            nombre: nombre
+        },
+        success:function(data){
+            if (typeof(data)=="string"){
+                alert("Ya existe esa carpeta");
+            }
+            else{
+                cargar(data);
+            }
+        },
+    });
+}
+function minMax(a){
+    var div = document.getElementById(a);
+    for(var i = 0;i < div.children.length;i++){
+        if(div.children[i].style.display == "none"){
+            div.children[i].style.display = "block";
+        }
+        else{
+            div.children[i].style.display = "none";
+        }
+    }
+}
+function cargar(data){
+    base = document.getElementById("myFiles")
+    base.innerHTML = "";
+    div = document.createElement("div");
+    div.style = "width:100%;";
+    base.appendChild(div);
+    for(key in data){
+        if(key != ""){
+            temp = document.createElement("div");
+            temp.setAttribute("class","files2");
+            temp.id = key+"--";
+            temp.setAttribute("onclick", "minMax('"+key+"--')");
+            temp.appendChild(document.createTextNode(key));
+            for(x in data[key]){
+                hijo = document.createElement("div");
+                hijo.setAttribute("class","files3");
+                hijo.setAttribute("onclick","codigo("+data[key][x]+","+key+")");
+                // hijo.setAttribute("style","display:none");
+                hijo.appendChild(document.createTextNode(data[key][x]));
+                temp.appendChild(hijo);
+            }
+            div.appendChild(temp);
+        }
+        else{
+            for(x in data[key]){
+                temp = document.createElement("div");
+                temp.setAttribute("class","files3");
+                temp.setAttribute("style","display:block");
+                temp.appendChild(document.createTextNode(data[key][x]));
+                temp.setAttribute("onclick","codigo("+data[key][x]+",'')");
+                div.appendChild(temp);
+            }
+        }
+    }
+}
+var estado = "";
+var dir_estado = "";
+function codigo(name,dir){
+    estado = name;
+    dir_estado = dir;
+    $.ajax({
+        type:'POST',
+        url:'getCodigo',
+        data:{
+            nombre: estado,
+            dir:dir
+        },
+        success:function(data){
+            document.getElementById("editor").textContent = data;
+            // console.log(data);
+        },
+    });
+}
 //-------- EDITOR ----------------------------------------------------------------------------------------------
 
 var keywords = [
@@ -411,11 +525,16 @@ var keywords = [
             contenido += $("#editor").children()[i].textContent.replace("    ","\t");
             contenido += "\n"; 
         }
+        console.log(dir_estado);
+        console.log(estado);
         $.ajax({
             type:'POST',
             url:'codigo',
             data:{
                 codigo: contenido,
+                // codigo: $("#editor").text(),
+                estado:estado,
+                dir:dir_estado,
                 // csrfmiddlewaretoken:$('input[name=csrfmiddlewaretoken]').val(),
                 action: 'post'
             },

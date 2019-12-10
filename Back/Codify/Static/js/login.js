@@ -25,6 +25,18 @@ logInButton.addEventListener('click', () => {
 			password: password,
 		},
 		success: function(data){
+			username = data['user'];
+			$.ajax({
+				method: "POST",
+				url: "http://localhost:8000/index/mkdir",
+				data: {
+					user:username
+				},
+				success: function(data){	
+					localStorage.setItem("usuario",username);
+				},
+				
+			});
 			window.location = "/index";
 		},
 		
@@ -46,16 +58,6 @@ registro.addEventListener('click', () => {
 			password: password,
 		},
 		success: function(data){
-			$.ajax({
-				method: "POST",
-				url: "http://localhost:8000/index/mkdir",
-				data: {
-					user:username
-				},
-				success: function(data){	
-				},
-				
-			});
 			window.location = "/login";
 		},
 		

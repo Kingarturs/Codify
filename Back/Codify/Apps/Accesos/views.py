@@ -5,7 +5,7 @@ from rest_framework.decorators import action
 
 from Apps.Accesos import models as models_accesos
 from Apps.Accesos import serializers as AccesoSerializers
-
+import os
 # Create your views here.
 def login_view(request):
     if request.session.get('sesion'):
@@ -14,7 +14,15 @@ def login_view(request):
         return render(request, "login.html")
         
 def index_view(request):
-    return render(request, "index.html")
+    user = request.session['sesion']
+    carpetas = {}
+    for base, dirs, files in os.walk("code/%s"%user):
+        for i in dirs:
+            carpetas[i] = os.listdir("code/%s/%s"%(user,i))
+        carpetas[""] = files
+        break
+    print(carpetas)
+    return render(request, "index.html",{"dirs":carpetas})
 
 def welcome_view(request):
     return render(request, "welcome.html")

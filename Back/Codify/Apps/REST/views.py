@@ -17,7 +17,9 @@ from rest_framework.status import (
     HTTP_200_OK
 )
 import os
+from django.contrib.auth import authenticate, login
 # Create your views here.
+
 
 
 @csrf_exempt
@@ -34,6 +36,10 @@ def login(request):
     else:
         token, _ = Token.objects.get_or_create(user=user)
         request.session['sesion'] = user.id
+        # authenticate(username=username, password=password)
+        # print(authenticate)
+        # login(request, user)
+        request.user = username
         return Response({"token":token.key, "user":user.id}, status=HTTP_200_OK)
 
 def logout(request):

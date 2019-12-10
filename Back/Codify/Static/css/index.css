@@ -492,3 +492,37 @@ body, html {
 }
 /* Large only */
 @media screen and (min-width: 64em) and (max-width: 74.9375em) {}
+
+
+.make{
+	display: none;
+	width: 0%;
+	height: 0%;
+	position: absolute;
+	background-color: #707070;
+	margin-left:auto;
+	margin-right:auto;
+	margin-top: auto;
+	top: 45%;
+	left:0;
+	right:0;
+}
+
+.files2{
+	position: relative;
+	margin-top: -0;
+	width: 100%;
+	height: auto;
+	color: white;
+	border: solid red;
+	align-items: left;
+}
+.files3{
+	position: relative;
+	margin-top: 0;
+	width: 90%;
+	height: auto;
+	color: white;
+	border: solid blue;
+	display: none;
+}
