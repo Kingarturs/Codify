@@ -22,6 +22,13 @@ editorIcon.addEventListener("keyup", actualizar);
 var editor = ace.edit("editor");
 editor.setTheme("ace/theme/monokai");
 editor.session.setMode("ace/mode/python");
+$(function() {
+    var editor;
+    $('.ace_editor').each(function( index ) {
+      editor = ace.edit(this);
+      editor.setFontSize("14px");
+    });
+ })
 
 var loc = window.location
 var wsStart = 'ws://'; 
