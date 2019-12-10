@@ -35,7 +35,7 @@ urlpatterns = [
     path('index/crearCarpeta', views_documentos.crearCarpeta),
     path('index/logout', views_REST.logout),
     path('index/codigo', views_documentos.codigo),
-    path('index/descargar', views_documentos.descargar),
+    path('index/descargar/<str:name>/<str:dir>', views_documentos.descargar),
     path('index/mkdir', views_documentos.mkdir),
     path('index/carpeta', views_documentos.carpeta),
     path('index/archivo', views_documentos.archivo),
