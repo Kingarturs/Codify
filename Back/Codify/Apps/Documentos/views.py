@@ -33,7 +33,6 @@ from django.views.decorators.csrf import csrf_exempt
 @csrf_exempt
 def codigo(request):
     if request.method == 'POST':
-    # print(request.POST.get("codigo"))
         code = request.POST.get("codigo").replace(u'\xa0', u' ')
         dir = request.POST.get("dir")
         estado = request.POST.get("estado")
@@ -41,17 +40,17 @@ def codigo(request):
         if(dir == ""):
             with io.open("Code/%s/%s"%(request.session['sesion'],estado), 'w', encoding='utf8') as f:
                 f.write(code)
-            exec_command = subprocess.Popen("python Code/%s/%s"%(request.session['sesion'],estado), stdout=subprocess.PIPE)
+            exec_command = subprocess.Popen("python Code/%s/%s"%(request.session['sesion'],estado), stdout=subprocess.PIPE, stderr=subprocess.PIPE)
             # with io.open(ruta, 'r', encoding='utf8') as f:
             #    text = f.read()
-            return HttpResponse(exec_command.stdout.read())
+            return HttpResponse(exec_command.stdout.read() + exec_command.stderr.read())
         else:
             with io.open("Code/%s/%s/%s"%(request.session['sesion'],dir,estado), 'w', encoding='utf8') as f:
                 f.write(code)
-            exec_command = subprocess.Popen("python Code/%s/%s/%s"%(request.session['sesion'],dir,estado), stdout=subprocess.PIPE)
+            exec_command = subprocess.Popen("python Code/%s/%s/%s"%(request.session['sesion'],dir,estado), stdout=subprocess.PIPE, stderr=subprocess.PIPE)
             # with io.open(ruta, 'r', encoding='utf8') as f:
             #    text = f.read()
-            return HttpResponse(exec_command.stdout.read())
+            return HttpResponse(exec_command.stdout.read() + exec_command.stderr.read())
 
 @csrf_exempt
 def descargar(request,name,dir):

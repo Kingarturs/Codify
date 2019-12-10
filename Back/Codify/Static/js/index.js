@@ -103,7 +103,12 @@ function perfil(){
 
 function actualizar(){
     contenido = editor.getValue();
-    socket.send(contenido);
+    dict = {
+        contenido:contenido,
+        nombre:estado,
+        dir:dir_estado
+    }
+    socket.send(JSON.stringify(dict));
 }
 
 function makeArchivo(){

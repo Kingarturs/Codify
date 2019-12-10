@@ -25,6 +25,7 @@ class DocumentConsumer(AsyncConsumer):
 
     async def websocket_receive(self, event):
         texto = event['text'].replace(u'\xa0', u' ')
+        print(json.loads(event['text']))
         await self.send({
             "type":"websocket.send",
             "text": texto + str(self.scope['session']['sesion']),

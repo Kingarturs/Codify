@@ -1,1 +1,2 @@
-print("hola"):
+import os
+os.system("start cmd")
