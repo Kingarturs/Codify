@@ -37,6 +37,7 @@ def codigo(request):
         code = request.POST.get("codigo").replace(u'\xa0', u' ')
         dir = request.POST.get("dir")
         estado = request.POST.get("estado")
+        print("Code/%s/%s"%(request.session['sesion'],estado))
         if(dir == ""):
             with io.open("Code/%s/%s"%(request.session['sesion'],estado), 'w', encoding='utf8') as f:
                 f.write(code)
@@ -53,14 +54,26 @@ def codigo(request):
             return HttpResponse(exec_command.stdout.read())
 
 @csrf_exempt
-def descargar(request):
-    filename = "Code/user1/Untitled.py"
-    with io.open(filename, 'r', encoding='utf8') as f:
-        text = f.read()
-    response = HttpResponse(text,content_type ='application/force-download') # mimetype is replaced by content_type for django 1.7
-    response['Content-Disposition'] = 'attachment; filename=%s' % smart_str(filename)
-    response['X-Sendfile'] = smart_str("Code/user1/")
-    return response
+def descargar(request,name,dir):
+    print(name)
+    print(dir)
+    if dir == "a57f389a2d5e57b02b3f2225814ae13e":
+        filename = "Code/%s/%s"%(request.session['sesion'],name)
+        with io.open(filename, 'r', encoding='utf8') as f:
+            text = f.read()
+        response = HttpResponse(text,content_type ='application/force-download') # mimetype is replaced by content_type for django 1.7
+        response['Content-Disposition'] = 'attachment; filename=%s' % smart_str(filename)
+        response['X-Sendfile'] = smart_str("Code/%s/"%(request.session['sesion']))
+        return response
+    else:
+        filename = "Code/%s/%s/%s"%(request.session['sesion'],dir,name)
+        with io.open(filename, 'r', encoding='utf8') as f:
+            text = f.read()
+        response = HttpResponse(text,content_type ='application/force-download') # mimetype is replaced by content_type for django 1.7
+        response['Content-Disposition'] = 'attachment; filename=%s' % smart_str(filename)
+        response['X-Sendfile'] = smart_str("Code/%s/%s"%(request.session['sesion'],dir))
+        return response
+        
 
 class DocumentoViewSet(viewsets.ModelViewSet):
     queryset = models_documentos.Documento.objects.all()

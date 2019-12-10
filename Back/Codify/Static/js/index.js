@@ -197,10 +197,11 @@ function codigo(name,dir){
         url:'getCodigo',
         data:{
             nombre: estado,
-            dir:dir
+            dir:dir,
+            codigo: editor.getValue()
         },
         success:function(data){
-            document.getElementById("editor").textContent = data;
+            editor.setValue(data);
         },
     });
 }
@@ -223,7 +224,24 @@ function enviar(){
 }
 
 function descargar(){
-    window.open("descargar")
+    if(dir_estado == ""){
+        dirs_estado = "a57f389a2d5e57b02b3f2225814ae13e"
+    }
+    else{
+        dirs_estado = dir_estado
+    }
+    window.open("descargar/"+estado+"/"+dirs_estado)
+    // $.ajax({
+    //     type:'POST',
+    //     url:'descargar',
+    //     data:{
+    //         estado:estado,
+    //         dir:dir_estado
+    //     },
+    //     success:function(data){
+    //         window.open(data);
+    //     },
+    // });
 }
 
 //-------- EDITOR ----------------------------------------------------------------------------------------------
