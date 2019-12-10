@@ -35,18 +35,18 @@
 					<h6 class="files-text">Shared</h6>
 				</div>
 			</div>
-			<div id="myFiles" class="row files">
+			<div id="myFiles" class="files">
 				<div style = "width: 100%;">
 					{% for key,value in dirs.items %}
 						{% if key != "" %}	
-							<div class = "files2" id="{{key}}--" onclick="minMax('{{key}}--')">{{key}}
+							<li class = "acc-item" id="{{key}}--"><a href="#{{key}}--" class="btn">{{key}}</a>
 								{% for y in value %}
-									<div class = "files3"  onclick="codigo('{{y}}','{{key}}')">{{y}}</div>
+									<div class = "submenu"  onclick="codigo('{{y}}','{{key}}')">{{y}}</div>
 								{% endfor %}			
-							</div>
+							</li>
 						{% else %}
 							{% for y in value %}
-								<div class = "files3" style="display:block" onclick="codigo('{{y}}','')">{{y}}
+								<div class="submenu2" style="display:block" onclick="codigo('{{y}}','')">{{y}}
 								</div>
 							{% endfor %}
 						{% endif %}
@@ -109,20 +109,20 @@
 		</div>
 	</section>
 	<div class = "make" id = "makeCarpeta">
-		<input type="text" placeholder="xXPussyDestroyerXx">
-		<input type="button" value="Aceptar" onclick="makeCarpeta();this.parentNode.children[0].value = '';$('#makeCarpeta').animate({top:'45%',height: '0%', width: '0%'},500);setTimeout(() => {  this.parentNode.style.display = 'none'; }, 400);">
-		<input type="button" value="Cancelar" onclick="this.parentNode.children[0].value = '';$('#makeCarpeta').animate({top:'45%',height: '0%', width: '0%'},500);setTimeout(() => {  this.parentNode.style.display = 'none'; }, 400);">
+		<input type="text" placeholder="Nombre de la carpeta">
+		<input type="button" value="Aceptar" class="button" onclick="makeCarpeta();this.parentNode.children[0].value = '';$('#makeCarpeta').animate({top:'45%',height: '0%', width: '0%'},500);setTimeout(() => {  this.parentNode.style.display = 'none'; }, 400);">
+		<input type="button" value="Cancelar" class="button" onclick="this.parentNode.children[0].value = '';$('#makeCarpeta').animate({top:'45%',height: '0%', width: '0%'},500);setTimeout(() => {  this.parentNode.style.display = 'none'; }, 400);">
 	</div>
 	<div class = "make" id = "makeArchivo">
-		<input type="text" placeholder="Puto el que lo lea.py">
+		<input type="text" placeholder="miArchivo.py">
 		<select name="" id="raiz">
 		</select>
 		<select name="" id="lenguaje">
 				<option value="Python">Python</option>
 				<option value="Javascript">Javascript</option>
 		</select>
-		<input type="button" value="Aceptar" onclick="makeArchivo();this.parentNode.children[0].value = '';$('#makeArchivo').animate({top:'45%',height: '0%', width: '0%'},500);setTimeout(() => {  this.parentNode.style.display = 'none'; }, 400);">
-		<input type="button" value="Cancelar" onclick="this.parentNode.children[0].value = '';$('#makeArchivo').animate({top:'45%',height: '0%', width: '0%'},500);setTimeout(() => {  this.parentNode.style.display = 'none'; }, 400);">
+		<input type="button" value="Aceptar" class="button" onclick="makeArchivo();this.parentNode.children[0].value = '';$('#makeArchivo').animate({top:'45%',height: '0%', width: '0%'},500);setTimeout(() => {  this.parentNode.style.display = 'none'; }, 400);">
+		<input type="button" value="Cancelar" class="button" onclick="this.parentNode.children[0].value = '';$('#makeArchivo').animate({top:'45%',height: '0%', width: '0%'},500);setTimeout(() => {  this.parentNode.style.display = 'none'; }, 400);">
 	</div>
 </body>
 </html>

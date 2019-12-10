@@ -71,7 +71,7 @@ function showPersonal() {
 
 function crearCarpeta(){
     document.getElementById("makeCarpeta").style.display = "block";
-    $("#makeCarpeta").animate({top:"30%",height: "30%", width: "30%"},250);
+    $("#makeCarpeta").animate({top:"30%",height: "160px", width: "30%"},250);
 }
 
 function crearArchivo(){
@@ -90,7 +90,7 @@ function crearArchivo(){
         }
     }
     document.getElementById("makeArchivo").style.display = "block";
-    $("#makeArchivo").animate({top:"30%",height: "30%", width: "30%"},250);
+    $("#makeArchivo").animate({top:"30%",height: "300px", width: "30%"},250);
 }
 
 function notificaciones(){
@@ -156,19 +156,23 @@ function cargar(data){
     base = document.getElementById("myFiles")
     base.innerHTML = "";
     div = document.createElement("div");
-    div.style = "width:100%;";
+    div.setAttribute("class", "accordionFiles");
     base.appendChild(div);
     for(key in data){
         if(key != ""){
-            temp = document.createElement("div");
-            temp.setAttribute("class","files2");
+            temp = document.createElement("li");
+            temp.setAttribute("class","acc-item");
             temp.id = key+"--";
-            temp.setAttribute("onclick", "minMax('"+key+"--')");
-            temp.appendChild(document.createTextNode(key));
+            // temp.setAttribute("onclick", "minMax('"+key+"--')");
+            a = document.createElement("a");
+            a.appendChild(document.createTextNode(key))
+            a.setAttribute("class", "btn");
+            a.setAttribute("href", "#" + key + "--");
+            temp.appendChild(a);
             for(x in data[key]){
                 hijo = document.createElement("div");
-                hijo.setAttribute("class","files3");
-                hijo.setAttribute("onclick","codigo("+data[key][x]+","+key+")");
+                hijo.setAttribute("class","submenu");
+                hijo.setAttribute("onclick","codigo('"+data[key][x]+"','"+key+"')");
                 hijo.appendChild(document.createTextNode(data[key][x]));
                 temp.appendChild(hijo);
             }
@@ -177,10 +181,10 @@ function cargar(data){
         else{
             for(x in data[key]){
                 temp = document.createElement("div");
-                temp.setAttribute("class","files3");
+                temp.setAttribute("class","submenu2");
                 temp.setAttribute("style","display:block");
                 temp.appendChild(document.createTextNode(data[key][x]));
-                temp.setAttribute("onclick","codigo("+data[key][x]+",'')");
+                temp.setAttribute("onclick","codigo('"+data[key][x]+"','')");
                 div.appendChild(temp);
             }
         }

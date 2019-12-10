@@ -1,12 +1,18 @@
 * {
 	margin: 0px;
 	padding: 0px;
+	box-sizing: border-box;
 }
 
 body, html {
 	font-family: 'Actor', sans-serif;
 	width: 100%;
 	height: 100%;
+}
+
+a{
+	text-decoration: none !important;
+	color: rgb(209, 209, 209) !important;
 }
 
 /*font-family: 'Merienda', cursive;*/
@@ -499,9 +505,11 @@ body, html {
 .make{
 	display: none;
 	width: 0%;
+	border-radius: 10px;
 	height: 0%;
 	position: absolute;
-	background-color: #707070;
+	background-color: #f3f3f3;
+	padding: 20px;
 	margin-left:auto;
 	margin-right:auto;
 	margin-top: auto;
@@ -510,7 +518,124 @@ body, html {
 	right:0;
 }
 
-.files2{
+.button{
+	background-color: #d8b519 !important;
+	font-weight: bold !important;
+}
+
+.accordionFiles{
+	width: 100%;
+	border-radius: 0.5em;
+	overflow: hidden;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+li{
+	list-style: none !important;
+}
+
+.acc-item{
+	border-top: 1px solid #292c30;
+	overflow: hidden;
+	color: white !important;
+}
+
+.btn{
+	display: block;
+	padding: .5rem .7rem;
+	background: #292c30;
+	text-transform: uppercase;
+	position: relative;
+	font-size: 14px !important;
+}
+
+.btn::before{
+	content: "";
+	position: absolute;
+	width: .7rem;
+	height: .7rem;
+	background: #292c30;
+	left: 10px;
+	bottom: -5px;
+	transform: rotate(45deg);
+}
+
+.btn i{
+	margin-right: 0.5rem;
+}
+
+.submenu{
+	background: rgb(213, 192, 80);
+	overflow: hidden;
+	/* padding: .3rem .5rem; */
+	transition: max-height 0.4s;
+	max-height: 0;
+}
+
+.submenu a{
+	display: block;
+	padding: 1rem 1.5rem;
+	color: #fff;
+	font-size: 0.9rem;
+	margin: 0.2rem 0;
+
+}
+
+.submenu a::before{
+	content: "";
+	position: absolute;
+	width: 0.3rem;
+	height: 100%;
+	background: rgb(206, 203, 190);
+	left: 0;
+	top: 0;
+	transition: 0.4s;
+	opacity: 0;
+}
+
+.submenu a:hover::before{
+	opacity: 1;
+}
+
+.submenu2{
+	background: rgb(185, 54, 14);
+	overflow: hidden;
+	padding: .3rem .5rem;
+	color: white !important;
+}
+
+.submenu2 a{
+	display: block;
+	padding: 1rem 1.5rem;
+	color: #fff !important;
+	font-size: 0.9rem;
+	margin: 0.2rem 0;
+}
+
+.submenu2 a::before{
+	content: "";
+	position: absolute;
+	width: 0.3rem;
+	height: 100%;
+	background: rgb(213, 192, 80);
+	left: 0;
+	top: 0;
+	transition: 0.4s;
+	opacity: 0;
+}
+
+.submenu2 a:hover::before{
+	opacity: 1;
+}
+
+.acc-item:target .submenu {
+	max-height: 12rem;
+	padding: .3rem .5rem;
+}
+
+/* .files2{
 	position: relative;
 	margin-top: -0;
 	width: 100%;
@@ -527,4 +652,4 @@ body, html {
 	color: white;
 	border: solid blue;
 	display: none;
-}
+} */
