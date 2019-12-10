@@ -19,7 +19,7 @@ logInButton.addEventListener('click', () => {
 
 	$.ajax({
 		method: "POST",
-		url: "http://localhost:8000/token-login/",
+		url: "/token-login/",
 		data: {
 			username: username,
 			password: password,
@@ -28,9 +28,9 @@ logInButton.addEventListener('click', () => {
 			username = data['user'];
 			$.ajax({
 				method: "POST",
-				url: "http://localhost:8000/index/mkdir",
+				url: "/index/mkdir",
 				data: {
-					user:username
+					user:username,
 				},
 				success: function(data){	
 					localStorage.setItem("usuario",username);
@@ -51,7 +51,7 @@ registro.addEventListener('click', () => {
 
 	$.ajax({
 		method: "POST",
-		url: "http://localhost:8000/rest/users/",
+		url: "/rest/users/",
 		data: {
 			username: username,
 			email: email,

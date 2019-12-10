@@ -123,7 +123,8 @@ body, html {
 }
 .area{
 	background-color: #2d3436;
-    padding: 0 !important;
+	padding: 0 !important;
+	font-family: monospace;
 }
 .code{
 	height: 93%;
@@ -133,12 +134,14 @@ body, html {
 	display: block;
 }
 .editor{
-	margin: 2% 3% 3% 3%;
-	background-color:  #1e272e;
+	/* margin: 2% 3% 3% 3%;
+	background-color:  #1e272e; */
 	height: calc(100% - 3%);
 	width: calc(100% - 6%);
-	padding: 3%;
-	outline: none;
+	font-family: monospace !important;
+	font-size: 16px;
+	/* padding: 3%;
+	outline: none; */
 }
 .compiler{
     border-top: solid #707070 2px;
