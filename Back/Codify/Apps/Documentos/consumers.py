@@ -20,7 +20,7 @@ class DocumentConsumer(AsyncConsumer):
         username = self.scope['session']['sesion']
         await self.send({
             "type":"websocket.send",
-            "text": "user",
+            "text": username,
         })
 
     async def websocket_receive(self, event):
