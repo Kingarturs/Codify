@@ -1,0 +1,97 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Codify</title>
+
+	<link rel="stylesheet" href="{% static 'css/index.css' %}">
+	<link rel="stylesheet" href="{% static 'css/app.css' %}">
+	<link rel="stylesheet" href="{% static 'css/foundation.css' %}">
+	<link rel="stylesheet" href="{% static 'css/foundation.min.css' %}">
+	<link href="https://fonts.googleapis.com/css?family=Merienda&display=swap" rel="stylesheet"> 
+	<link href="https://fonts.googleapis.com/css?family=Actor&display=swap" rel="stylesheet"> 
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins&display=swap">
+
+	<script defer type="text/javascript" src="{% static 'js/vendor/jquery.js' %}"></script>
+	<script defer type="text/javascript" src="{% static 'js/vendor/foundation.js' %}"></script>
+	<script defer type="text/javascript" src="{% static 'js/app.js' %}"></script>
+	<script defer type="text/javascript" src="{% static 'js/vendor/foundation.min.js' %}"></script>
+	<script defer type="text/javascript" src="{% static 'js/index.js' %}"></script>
+	<script defer type="text/javascript" src="{% static 'js/vendor/what-input.js' %}"></script>
+</head>
+<body>
+	
+<section class="section1 row expanded">
+		<div class="columns large-2 medium-2 small-3 sidebar">
+			<div class="row expanded logo"><h1 class="line anim-typewriter" style="color: whitesmoke;">Codify( )</h1></div>
+			<div class="row expanded height-selector">
+				<div class="columns large-6 medium-6 small-6 files-option" id="btnPersonal">
+					<h6 class="files-text">Files</h6>
+				</div>
+				<div class="columns large-6 medium-6 small-6 shared-option" id="btnShared">
+					<h6 class="files-text">Shared</h6>
+				</div>
+			</div>
+			<div id="myFiles" class="row files">
+					
+			</div>
+			<div id="sharedFiles" class="row files sharedFiles">
+					
+			</div>
+			<div class="row icons">
+					<div class="div-iconos columns large-3 medium-3 small-3">
+					<img class="imagenes-iconos" src="{% static 'img/newFile.svg' %}" id="crearArchivo"></div>
+					<div class="div-iconos columns large-3 medium-3 small-3">
+					<img class="imagenes-iconos" src="{% static 'img/crearProyecto.svg' %}" id="crearCarpeta"></div>
+					<div class="div-iconos columns large-3 medium-3 small-3">
+					<img class="imagenes-iconos" src="{% static 'img/notification.svg' %}" id="notification"></div>
+					<div class="div-iconos columns large-3 medium-3 small-3">
+					<img class="imagenes-iconos" src="{% static 'img/profile.svg' %}" id="perfil"></div>
+			</div>
+		</div>
+		<div class="columns large-10 medium-10 small-9 area">
+			<div class="row expanded code">
+				<div id="editor" class="editor" contenteditable="true"></div>
+			</div>
+			<div class="row expande btnRun">
+				<div class="columns large-1 medium-1 small-2 large-offset-11 medium-offset-11 small-offset-9 run">
+					<div class="row expanded height-100">
+						<div class="columns large-6 medium-6 small-6 large-offset-2  medium-offset-2 small-offset-2 run-elements height-100">
+							<h5 class="run-text">Run</h5>
+						</div>
+						<div class="run-elements columns large-3 medium-3 small-3 height-100">
+							<img class="run-icon" src="{% static 'img/run.svg' %}">
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row expanded compiler">
+				<div class="columns large-1 medium-1 large-offset-11 medium-offset-11 run" id="correr">
+					<div class="row expanded height-100">
+						<div class="columns large-6 medium-6 large-offset-2  medium-offset-2 run-elements height-100">
+							<h5 class="run-text">Run</h5>
+						</div>
+						<div class="run-elements columns large-3 medium-3 height-100">
+							<img class="run-icon" src="{% static 'img/run.svg' %}">
+						</div>
+					</div>
+				</div>
+				<div class="columns large-1 medium-1 large-offset-11 medium-offset-11 run" id="descargar">
+						<div class="row expanded height-100">
+							<div class="columns large-6 medium-6 large-offset-2  medium-offset-2 run-elements height-100">
+								<h5 class="run-text">Descargar</h5>
+							</div>
+							<div class="run-elements columns large-3 medium-3 height-100">
+								<img class="run-icon" src="{% static 'img/run.svg' %}">
+							</div>
+						</div>
+					</div>
+				<div id="consola"></div>
+			</div>
+		</div>
+	</section>
+	
+</body>
+</html>

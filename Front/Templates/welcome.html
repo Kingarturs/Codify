@@ -4,13 +4,14 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Codify</title>
+	<link rel="stylesheet" href= "../Static/css/styles.css">
+	<link rel="stylesheet" href= "../Static/css/app.css">
+	<link rel="stylesheet" href= "../Static/css/foundation.css">
+	<link rel="stylesheet" href= "../Static/css/foundation.min.css">
 
-	<link rel="stylesheet" href="../Static/css/styles.css">
-	<link rel="stylesheet" href="../Static/css/app.css">
-	<link rel="stylesheet" href="../Static/css/foundation.css">
-	<link rel="stylesheet" href="../Static/css/foundation.min.css">
+	<link rel="stylesheet" href= "../Static/css/navbar.css">
 
-	<link href="https://fonts.googleapis.com/css?family=Merienda&display=swap" rel="stylesheet"> 
+	<link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Actor&display=swap" rel="stylesheet"> 
 	<link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet"> 
 
@@ -21,41 +22,65 @@
 	<script defer type="text/javascript" src="../Static/js/vendor/jquery.js"></script>
 	<script defer type="text/javascript" src="../Static/js/vendor/foundation.js"></script>
 	<script defer type="text/javascript" src="../Static/js/app.js"></script>
-	<script defer type="text/javascript" src="../Static/js/vendor/foundation.min.js"></script>
-	
+	<script defer type="text/javascript" src="../Static/js/vendor/foundation.min.js"></script>	
 	<script defer type="text/javascript" src="../Static/js/vendor/what-input.js"></script>
 
 	<script defer type="text/javascript" src="../Static/js/particulas.js"></script>
 	<script defer type="text/javascript" src="../Static/js/particles.js"></script>
 
 </head>
+
 <body>
 	<div id="particles-js"></div>
-
+	
 	<!-- Pantalla de Bienvenida - Móvil -->	
 	<div class="bienvenida height-100 width-100 show-for-small-only hasFlex">
 		<div class="row small-12 show-for-small-only">
 			<div class="columns small-12 align-middle align-center hasFlex">	
-				<h1 class="line anim-typewriter" style="font-size: 4em;">Codify( )</h1>
+				<h1 class="line anim-typewriter" style="font-size: 4em; color: rgb(218, 199, 30);">Codify( )</h1>
 			</div>			
 		</div>		
 	</div>
+
+	<!-- Barra de navegación WEB y iPad -->
+	<section id="navBar" class="hide-for-small-only">
+		<div id="logo">
+			<!-- <h1 class="line anim-typewriter" style="font-size: 2em; color: rgb(240, 240, 240);">Codify( )</h1> -->
+		</div>
+		<div id="options" class="large-4 medium-6">
+			<a class="op" href="#home">Home</a>
+			<a class="op" href="#description">Description</a>
+			<a class="op" href="#credits">Credits</a>
+			<img src="../Static/img/cd.png" alt="" width="60" >
+			<!-- <p></p> -->
+		</div>
+	</section>
+
+	<!-- Barra de navegación MÓVIL -->
+	<section id="navBar" class="show-for-small-only" style="height: 55px;">
+		<div id="options" class="large-4 medium-6 small-12">
+			<a class="op" href="#home">Home</a>	
+			<a class="op" href="#description">Description</a>	
+			<a class="op" href="#credits">Credits</a>
+			<img src="../Static/img/cd.png" alt="" width="60" >
+		</div>
+	</section>
 	
 	<!-- Pantalla Welcome -->
-	<section class="sectionWelcome height-100">
+	<section id="home" class="sectionWelcome height-100">
 		<div class="row expanded height-100">
 			<div class="width-100 hasFlex">
 				<div class="row expanded align-left align-middle large-12">
 					<!-- Welcome Page -->
 					<div class="row menu large-12 align-middle show-for-small-only">
 						<!-- Móvil -->
-						<h1 class="line anim-typewriter" style="font-size: 3em;">Codify( )</h1>
+						<h1 class="line anim-typewriter" style="font-size: 3em; color: rgb(218, 199, 30);">Codify( )</h1>
 					</div>			
 					<div class="row large-7 small-12">
-						<div class="columns large-12 align-middle left-padding-2 right-padding-2">
+						<div class="columns large-12 align-middle left-padding-2">
 							<!-- Móvil -->
 							<div class="columns small-12 no-padding show-for-small-only">
-								<div class="orbit" role="region" data-orbit>
+								<div class="orbit" role="region" aria-label="Favorite Space Pictures" data-orbit>
 									<div class="orbit-wrapper">
 										<div class="orbit-controls">
 											<button class="orbit-previous"><span class="show-for-sr">Previous Slide</span>&#9664;&#xFE0E;</button>
@@ -64,20 +89,17 @@
 										<ul class="orbit-container">
 											<li class="is-active orbit-slide">
 												<figure class="orbit-figure">
-													<!-- IMAGEN 1 DEL SLIDESHOW -->
-													<img style="width: 100%;" class="orbit-image" src="../Static/img/kitten.jpg">
+													<img style="width: 100%;" class="orbit-image" src="../Static/img/code.jpg" alt="Space">
 												</figure>
 											</li>
 											<li class="orbit-slide">
 												<figure class="orbit-figure">
-													<!-- IMAGEN 2 DEL SLIDESHOW -->
-													<img style="width: 100%;" class="orbit-image" src="../Static/img/kitten.jpg">
+													<img style="width: 100%;" class="orbit-image" src="../Static/img/code2.jpg" alt="Space">
 												</figure>
 											</li>
 											<li class="orbit-slide">
 												<figure class="orbit-figure">
-													<!-- IMAGEN 3 DEL SLIDESHOW -->
-													<img style="width: 100%;" class="orbit-image" src="../Static/img/kitten.jpg">
+													<img style="width: 100%;" class="orbit-image" src="../Static/img/code3.jpg" alt="Space">
 												</figure>
 											</li>
 										</ul>
@@ -95,7 +117,7 @@
 
 							<!-- Título, descripción y boton START NOW - Web -->
 							<div class="columns large-12 no-padding hide-for-small-only">
-								<h1 class="line anim-typewriter">Codify( )</h1>
+								<h1 class="line anim-typewriter" style="color: rgb(218, 199, 30);">Codify( )</h1>
 							</div>							
 							<div class="columns large-12 no-padding description hide-for-small-only">
 								<p>Code in real time using Python or JavaScript and work online with anyone, anywhere, anytime!</p>
@@ -109,7 +131,7 @@
 					<div class="row large-5">
 						<!-- Móvil -->
 						<div class="columns small-12 align-middle left-padding-2 right-padding-2 hasFlex show-for-small-only">
-							<button class="hbtn hb-fill-on show-for-small-only comenzar" onclick="location.href='login.html'">START NOW</button>
+							<button class="hbtn hb-fill-on show-for-small-only iniciarSesion" onclick="location.href='login.html'">LOGIN</button>
 						</div>
 
 						<!-- Animaciones Íconos Web -->
@@ -124,6 +146,91 @@
 			</div>
 		</div>	
 	</section>
-	
+
+	<div id="particles-js2"></div>
+
+	<!-- Pantalla Description -->
+	<section id="description" class="sectionWelcome height-100">
+		<div class="row expanded height-100">
+			<div class="width-100 hasFlex">
+				<div class="row expanded align-left align-middle large-12">
+					<!-- Welcome Page -->
+					<div class="row menu large-12 align-middle show-for-small-only" style="margin-top: 14%;">
+						<!-- Móvil -->
+						<h1 style="font-size: 3em; color: rgb(218, 199, 30);">Description</h1>
+					</div>
+					<!-- WEB -->			
+					<div class="row large-12 small-12 align-middle align-center" style="flex-direction: column;">
+						<div class="columns large-12 align-middle left-padding-2 hasFlex hide-for-small-only" style="justify-content: center;">
+							<h1 style="font-size: 3em; color: rgb(218, 199, 30);">Description</h1>
+						</div>
+						<div class="row large-10 medium-10 small-12 align-middle align-center">
+							<!-- Descripción -->
+							<div class="columns large-12 medium-12 small-12 align-center align-middle left-padding-2 hasFlex">
+								<div class="columns large-12 medium-12 small-12 escrito">
+									<p><br>Codify is an online editor that lets you code in real time using Python or JavaScript as programming languages. <br> It lets you work with anyone, no matter where you are, and no matter what time it is. <br><br>
+
+									The purpose of Codify is to bring people together in a quite understandable editor, and thus create a comfortable workspace where everyone feels happy and at ease with their work.
+
+									<br></p>
+
+									<p style="text-align: center; font-style: italic; font-weight: bold;">"Codify not only wants to change the way people code, but the way code is shared around the world."
+									</p>
+								</div>					
+							</div>	
+						</div>	
+					</div>		
+				</div>			
+			</div>
+		</div>	
+	</section>
+
+	<div id="particles-js3"></div>
+
+	<!-- Pantalla Credits -->
+	<section id="credits" class="sectionWelcome height-100">
+		<div class="row expanded height-100">
+			<div class="width-100 hasFlex">
+				<div class="row expanded align-left align-middle large-12">
+					<!-- Welcome Page -->
+					<div class="row menu large-12 align-middle show-for-small-only" style="margin-top: 10%;">
+						<!-- Móvil -->
+						<h1 style="font-size: 3em; color: rgb(218, 199, 30);">Credits</h1>
+					</div>
+					<!-- WEB -->			
+					<div class="row large-12 small-12 align-middle align-center hide-for-small-only">
+						<div class="columns large-12 align-middle left-padding-2 hasFlex" style="justify-content: center;">
+							<h1 style="font-size: 3em; color: rgb(218, 199, 30); margin-top: 5%;">Credits</h1>
+						</div>
+					</div>	
+					<div class="row large-10 medium-10 small-10 align-middle align-center">
+						<!-- Front-End -->
+						<div class="columns large-12 medium-12 small-12 align-center align-middle left-padding-2 hasFlex front">
+							<div class="columns large-5 medium-12 small-12 credito">
+								<img src="../Static/img/ana.jpg" alt="" class="ana">
+								<p>Ana Graciela Vassallo Fedotkin<br> Desarrolladora Front-End</p>
+							</div>		
+							<div class="columns large-5 medium-12 small-12 credito">
+								<img src="../Static/img/daniel.jpeg" alt="" class="daniel">
+								<p>Daniel Rincón Méndez<br> Desarrollador Front-End</p>
+							</div>							
+						</div>	
+						<!-- Back-End -->
+						<div class="columns large-12 medium-12 small-12 align-center align-middle left-padding-2 hasFlex back">
+							<div class="columns large-5 medium-12 small-12 credito">
+								<img src="../Static/img/arturo.jpeg" alt="" class="arturo">
+								<p>Luis Arturo García González<br> Desarrollador Back-End</p>
+							</div>		
+							<div class="columns large-5 medium-12 small-12 credito">
+								<img src="../Static/img/sasha.jpeg" alt="" class="sasha">
+								<p>Alejandro Aguilera Olalde<br> Desarrollador Back-End</p>
+							</div>							
+						</div>	
+					</div>	
+				</div>			
+			</div>
+		</div>	
+	</section>
 </body>
+
 </html>

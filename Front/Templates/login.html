@@ -1,89 +1,118 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Codify</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script defer type="text/javascript" src="../Static/js/scripts.js"></script>
+    <script defer src="../Static/js/login.js"></script>
+    <script defer src="../Static/js/jquery.js"></script>
 
-	<link rel="stylesheet" href="../Static/css/styles.css">
-	<link rel="stylesheet" href="../Static/css/app.css">
-	<link rel="stylesheet" href="../Static/css/foundation.css">
-	<link rel="stylesheet" href="../Static/css/foundation.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Actor&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet"> 
 
-	<link href="https://fonts.googleapis.com/css?family=Merienda&display=swap" rel="stylesheet"> 
-	<link href="https://fonts.googleapis.com/css?family=Actor&display=swap" rel="stylesheet"> 
-	<link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" href= "../Static/css/app.css">
+    <link rel="stylesheet" href= "../Static/css/foundation.css">
+    <link rel="stylesheet" href= "../Static/css/foundation.min.css">
+    <link rel="stylesheet" href= "../Static/css/navbar.css">
+    <link rel="stylesheet" href= "../Static/css/styles.css">
 
-	<script defer type="text/javascript" src="../Static/js/scripts.js"></script>
-	<script defer type="text/javascript" src="../Static/js/vendor/jquery.js"></script>
-	<script defer type="text/javascript" src="../Static/js/vendor/foundation.js"></script>
-	<script defer type="text/javascript" src="../Static/js/app.js"></script>
-	<script defer type="text/javascript" src="../Static/js/vendor/foundation.min.js"></script>
-	
-	<script defer type="text/javascript" src="../Static/js/vendor/what-input.js"></script>
+    <script defer type="text/javascript" src="../Static/js/vendor/jquery.js"></script>
+    <script defer type="text/javascript" src="../Static/js/vendor/foundation.js"></script>
+    <script defer type="text/javascript" src="../Static/js/app.js"></script>
+    <script defer type="text/javascript" src="../Static/js/vendor/foundation.min.js"></script>  
+    <script defer type="text/javascript" src="../Static/js/vendor/what-input.js"></script>
+
+    <title>Codify - Login</title>
 </head>
+
 <body>
-	<!-- Pantalla Sign Up & Login -->
-	<section class="section1 height-100">
-		<div class="row expanded height-100">
-			<div class="width-100 hasFlex">
-				<div class="row expanded align-center align-middle large-6">
-					<!-- Logo de Codify Web & Móvil -->
-					<div class="row menu large-12 align-middle align-center">
-						<h1 class="line anim-typewriter" onclick="location.href='welcome.html'" style="font-size: 3.5em;">Codify( )</h1>
-					</div>			
-					<!-- Sign Up & Login -->
-					<div class="container large-12 medium-10" id="container">
-						<!-- Contenedor de Sign Up -->
-						<div id="SIGNUP" class="form-container sign-up-container large-12">
-							<form id="registro" action="#" class="signUpStyles">
-								<h1>Sign Up</h1>
-								<input type="text" placeholder="Username" />
-								<input type="email" placeholder="Email" />
-								<input type="password" placeholder="Password" />
-								<input type="password" placeholder="Confirm Password" />
-								<!-- Móvil -->
-								<p class="show-for-small-only">
-									Already have an account? Login <a onclick="cambiarALogin()">here</a>
-								</p>
-								<!-- ///////////// -->
-								<button>Sign Up</button>
-							</form>
-						</div>
-						<!-- Contenedor de Login -->
-						<div id="LOGIN" class="form-container sign-in-container large-12">
-							<form id="inicio" action="#" class="signInStyles">
-								<h1>Login</h1>
-								<input type="text" placeholder="Username"/>
-								<input type="password" placeholder="Password"/>
-								<!-- Móvil -->
-								<p class="show-for-small-only">Don't have an account? Sign up <a onclick="cambiarASignUp()">here</a></p>
-								<!-- ///////// -->
-								<button>Login</button>
-							</form>
-						</div>
-						<!-- Divs para Animación del Login & Sign Up -->
-						<div class="overlay-container large-12 hide-for-small-only">
-							<div class="overlay">
-								<!-- Div Welcome Back! -->
-								<div class="overlay-panel overlay-left welcomeBack">
-									<h1>Welcome Back!</h1>
-									<p>Already have an account? Login here!</p>
-									<button class="ghost" id="signIn">Login</button>
-								</div>
-								<!-- Div Hello There! -->
-								<div class="overlay-panel overlay-right helloThere">
-									<h1>Hello There!</h1>
-									<p>Don't have an account? Sign up here!</p>
-									<button class="ghost" id="signUp">Sign Up</button>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>			
-			</div>
-		</div>	
-	</section>
-	
-</body>
-</html>
+    <!-- Barra de Navegación WEB y iPad -->
+    <section id="navBar" style="height: 55px;" class="hide-for-small-only">
+        <div id="logo" class="left-padding-2">
+            <h1 class="line anim-typewriter" onclick="location.href='welcome.html'" style="font-size: 2em; color: rgb(218, 199, 30); cursor: pointer;">Codify( )</h1>
+        </div>
+        <div id="options" class="large-4 medium-6 hasFlex right-padding-2" style="justify-content: flex-end;">
+            <img src="../Static/img/cd.png" alt="" width="60" >
+        </div>
+    </section>    
+
+    <!-- Barra de Navegación MÓVIL -->
+    <section id="navBar" style="height: 55px;" class="show-for-small-only">
+        <div id="logo">
+            <h1 class="line anim-typewriter" onclick="location.href='welcome.html'" style="font-size: 2em; color: rgb(218, 199, 30); cursor: pointer;">Codify( )</h1>
+        </div>
+        <div id="options" class="large-4 medium-6 hasFlex" style="justify-content: flex-end;">
+            <img src="../Static/img/cd.png" alt="" width="60" >
+        </div>
+    </section>    
+    
+    <!-- Pantalla Sign Up & Login -->
+    <section class="section1 height-100">
+        <div class="row expanded height-100">
+            <div class="width-100 hasFlex">
+                <div class="row expanded align-center align-middle large-12">
+                    <!-- Imagen -->
+                    <div class="columns align-center align-middle large-5 hide-for-medium-only hide-for-small-only" style="padding: 2px;">
+                        <div id="image" class="align-middle hasFlex">
+                            <img src="../Static/img/code.jpg" alt="" height="100%">
+                        </div>
+                    </div>
+                    <div class="columns large-7 medium-11" style="padding: 7px;">
+                        <!-- Sign Up & Login -->
+                        <div class="container large-12 medium-10" id="container">
+                            <!-- Contenedor de Sign Up -->
+                            <div id="SIGNUP" class="form-container sign-up-container large-12">
+                                <form id="registro" action="#" class="signUpStyles">
+                                    <h1>Create Account</h1>
+                                    <input type="text" placeholder="Name" id="registroName" />
+                                    <input type="email" placeholder="Email" id="registroEmail" />
+                                    <input type="password" placeholder="Password" id="registroPassword" />
+                                    <!-- Móvil -->
+                                    <p class="show-for-small-only">
+                                        Already have an account? Login <a onclick="cambiarALogin()">here</a>
+                                    </p>
+                                    <!-- ///////////// -->
+                                    <button id="registro">Sign Up</button>
+                                </form>
+                            </div>
+                            <!-- Contenedor de Login -->
+                            <div id="LOGIN" class="form-container sign-in-container large-12">
+                                <form id="inicio" action="#" class="signInStyles">
+                                    <h1>Login</h1>
+                                    <input type="text" placeholder="Email" id="emailIn" />
+                                    <input type="password" placeholder="Password" id="passwordIn" />
+                                    <!-- Móvil -->
+                                    <p class="show-for-small-only">Don't have an account? Sign up <a onclick="cambiarASignUp()">here</a></p>
+                                    <!-- ///////// -->
+                                    <button id="login">Login</button>
+                                </form>
+                            </div>
+                            <!-- Divs para Animación del Login & Sign Up -->
+                            <div class="overlay-container large-12 hide-for-small-only">
+                                <div class="overlay">
+                                    <!-- Div Welcome Back! -->
+                                    <div class="overlay-panel overlay-left welcomeBack">
+                                        <h1>Already Registered?</h1>
+                                        <p>Welcome back! <br> Click below to login with your account</p>
+                                        <button class="ghost" id="signIn">Login</button>
+                                    </div>
+                                    <!-- Div Hello There! -->
+                                    <div class="overlay-panel overlay-right helloThere">
+                                        <h1>Hello There!</h1>
+                                        <p>Enter your personal details and start coding with <span
+                                            style="font-weight: bold; font-size: 15px;">Codify</span> right now!</p>
+                                            <button class="ghost" id="signUp">Sign Up</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>    
+                    </div>      
+                </div>
+            </div>  
+        </section>
+    </body>
+    </html>

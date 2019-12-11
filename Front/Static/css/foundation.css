@@ -4098,7 +4098,7 @@ table.hover:not(.unstriped) tr:nth-of-type(even):hover {
 
 .orbit-container {
   position: relative;
-  height: 234px !important;
+  height: 0;
   margin: 0;
   list-style: none;
   overflow: hidden; }
