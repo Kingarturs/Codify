@@ -6,6 +6,7 @@ const notificacionIcon = document.querySelector('#notification');
 const perfilIcon = document.querySelector('#perfil');
 const runIcon = document.querySelector('#correr');
 const downIcon = document.querySelector('#descargar');
+const editorIcon = document.getElementById('editor');
 
 personal.addEventListener("click",showPersonal);
 shared.addEventListener("click",showShared);
@@ -15,6 +16,7 @@ notificacionIcon.addEventListener("click", notificaciones);
 perfilIcon.addEventListener("click", perfil);
 runIcon.addEventListener("click", enviar);
 downIcon.addEventListener("click", descargar);
+editorIcon.addEventListener("keyup", actualizar);
 
 var loc = window.location
 var wsStart = 'ws://'; 
@@ -22,11 +24,12 @@ if (loc.protocol == 'https:') {
     wsStart = 'wss://';
 }
 
-var endpoint = wsStart + loc.host + loc.pathname;
+var endpoint = wsStart + loc.host + loc.pathname + "1";
+console.log(endpoint)
 var socket = new WebSocket(endpoint);
 
 socket.onmessage = function(e){
-    console.log("message", e);
+    console.log(e.data);
 }
 socket.onopen = function(e){
     console.log("open", e);
@@ -70,7 +73,16 @@ function perfil(){
     alert("Perfil");
 }
 
-//------------------------------------------------------------------------------------------------------
+function actualizar(){
+    contenido = "";
+    for(var i = 0; i < $("#editor").children().length;i++){
+        contenido += $("#editor").children()[i].textContent.replace("    ","\t");
+        contenido += "\n"; 
+    }
+    socket.send(contenido);
+}
+
+//-------- EDITOR ----------------------------------------------------------------------------------------------
 
 var keywords = [
     "ASSERT",
@@ -136,7 +148,7 @@ var keywords = [
     $("#editor").on("keyup", function(e){
         getLinea();
         getPuntero();
-        console.log(linea);
+        // console.log(linea);
         if((e.keyCode>47 && e.keyCode<58) || (e.keyCode>64 && e.keyCode<91)){
             if(this.children.length == 0){
                 this.textContent = "";
@@ -154,7 +166,7 @@ var keywords = [
                 nuevoSpan(this,e.key);
                 simbolo = false;
             }
-            console.log(this.children[linea].children[elemento]);
+            // console.log(this.children[linea].children[elemento]);
             var encontrado = false
             caracteres = ["",".","("," ",":"];
             for(var j = 0;j<caracteres.length;j++){
@@ -343,12 +355,12 @@ var keywords = [
     }
     function getEstado(objeto){
         posicion = window.getSelection().focusOffset;
-        console.log("objeto "+objeto.getAttribute("data-id")+" en la posicion "+posicion);
+        // console.log("objeto "+objeto.getAttribute("data-id")+" en la posicion "+posicion);
         elemento = parseInt(objeto.getAttribute("data-id"));
     };
     function getPuntero(){
         posicion = window.getSelection();
-        console.log("objeto "+posicion.getRangeAt(0).commonAncestorContainer.parentElement.getAttribute("data-id")+" en la posicion "+posicion.focusOffset);
+        // console.log("objeto "+posicion.getRangeAt(0).commonAncestorContainer.parentElement.getAttribute("data-id")+" en la posicion "+posicion.focusOffset);
         elemento = parseInt(posicion.getRangeAt(0).commonAncestorContainer.parentElement.getAttribute("data-id"));
     }
     function setPuntero(thiss,numero){
