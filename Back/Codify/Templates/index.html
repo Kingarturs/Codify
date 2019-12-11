@@ -69,7 +69,7 @@
 		</div>
 		<div class="columns large-10 medium-10 small-9 area">
 			<div class="row expanded code">
-				<div id="editor" class="editor" contenteditable="true"></div>
+				<div id="editor" class="editor" contenteditable="true" placeholder="//Your code here"></div>
 			</div>
 			<div class="row expande btnRun">
 				<div class="columns large-1 medium-1 small-2 large-offset-11 medium-offset-11 small-offset-9 run">
@@ -110,19 +110,19 @@
 	</section>
 	<div class = "make" id = "makeCarpeta">
 		<input type="text" placeholder="Nombre de la carpeta">
-		<input type="button" value="Aceptar" class="button" onclick="makeCarpeta();this.parentNode.children[0].value = '';$('#makeCarpeta').animate({top:'45%',height: '0%', width: '0%'},500);setTimeout(() => {  this.parentNode.style.display = 'none'; }, 400);">
-		<input type="button" value="Cancelar" class="button" onclick="this.parentNode.children[0].value = '';$('#makeCarpeta').animate({top:'45%',height: '0%', width: '0%'},500);setTimeout(() => {  this.parentNode.style.display = 'none'; }, 400);">
+		<input type="button" value="Create" class="button" onclick="makeCarpeta();this.parentNode.children[0].value = '';$('#makeCarpeta').animate({top:'45%',height: '0%', width: '0%'},500);setTimeout(() => {  this.parentNode.style.display = 'none'; }, 400);">
+		<input type="button" value="Cancel" class="button" onclick="this.parentNode.children[0].value = '';$('#makeCarpeta').animate({top:'45%',height: '0%', width: '0%'},500);setTimeout(() => {  this.parentNode.style.display = 'none'; }, 400);">
 	</div>
 	<div class = "make" id = "makeArchivo">
-		<input type="text" placeholder="miArchivo.py">
+		<input type="text" placeholder="File name without extension">
 		<select name="" id="raiz">
 		</select>
 		<select name="" id="lenguaje">
 				<option value="Python">Python</option>
 				<option value="Javascript">Javascript</option>
 		</select>
-		<input type="button" value="Aceptar" class="button" onclick="makeArchivo();this.parentNode.children[0].value = '';$('#makeArchivo').animate({top:'45%',height: '0%', width: '0%'},500);setTimeout(() => {  this.parentNode.style.display = 'none'; }, 400);">
-		<input type="button" value="Cancelar" class="button" onclick="this.parentNode.children[0].value = '';$('#makeArchivo').animate({top:'45%',height: '0%', width: '0%'},500);setTimeout(() => {  this.parentNode.style.display = 'none'; }, 400);">
+		<input type="button" value="Create" class="button" onclick="makeArchivo();this.parentNode.children[0].value = '';$('#makeArchivo').animate({top:'45%',height: '0%', width: '0%'},500);setTimeout(() => {  this.parentNode.style.display = 'none'; }, 400);">
+		<input type="button" value="Cancel" class="button" onclick="this.parentNode.children[0].value = '';$('#makeArchivo').animate({top:'45%',height: '0%', width: '0%'},500);setTimeout(() => {  this.parentNode.style.display = 'none'; }, 400);">
 	</div>
 </body>
 </html>

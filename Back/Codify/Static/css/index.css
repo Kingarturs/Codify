@@ -15,6 +15,22 @@ a{
 	color: rgb(209, 209, 209) !important;
 }
 
+::-webkit-scrollbar {
+	background: none !important;
+	width: 16px !important;
+	height: 16px !important;
+ }
+ ::-webkit-scrollbar-thumb {
+	 border: solid 0 rgba(0, 0, 0, 0) !important;
+	 border-right-width: 4px !important;
+	 border-left-width: 4px !important;
+	 -webkit-border-radius: 9px 4px !important;
+	 -webkit-box-shadow: inset 0 0 0 1px rgba(128, 128, 128, 0.2), inset 0 0 0 4px rgba(128, 128, 128, 0.2) !important;
+ }
+ ::-webkit-scrollbar-track-piece {
+	 margin: 4px 0 !important;
+ }
+
 /*font-family: 'Merienda', cursive;*/
 /*font-family: 'Actor', sans-serif;*/
 
@@ -148,6 +164,7 @@ a{
 	/* padding: 3%;
 	outline: none; */
 }
+
 .compiler{
     border-top: solid #707070 2px;
     height: 30%;
@@ -413,8 +430,11 @@ a{
 }
 
 .files{
-	height: 77.5%;
+	height: 73%;
 	padding: 4.5%;
+	overflow: hidden;
+	overflow-y: scroll;
+	margin-bottom: 20px;
 }
 .files-text{
 	font-size: 80%;
@@ -501,7 +521,6 @@ a{
 /* Large only */
 @media screen and (min-width: 64em) and (max-width: 74.9375em) {}
 
-
 .make{
 	display: none;
 	width: 0%;
@@ -523,14 +542,14 @@ a{
 	font-weight: bold !important;
 }
 
-.accordionFiles{
+/* .accordionFiles{
 	width: 100%;
 	border-radius: 0.5em;
 	overflow: hidden;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-}
+} */
 
 li{
 	list-style: none !important;
@@ -546,7 +565,7 @@ li{
 	display: block;
 	padding: .5rem .7rem;
 	background: #292c30;
-	text-transform: uppercase;
+	/* text-transform: uppercase; */
 	position: relative;
 	font-size: 14px !important;
 }

@@ -36,21 +36,25 @@ def codigo(request):
         code = request.POST.get("codigo").replace(u'\xa0', u' ')
         dir = request.POST.get("dir")
         estado = request.POST.get("estado")
-        print("Code/%s/%s"%(request.session['sesion'],estado))
+        lenguaje = request.POST.get("lenguaje")
         if(dir == ""):
             with io.open("Code/%s/%s"%(request.session['sesion'],estado), 'w', encoding='utf8') as f:
                 f.write(code)
-            exec_command = subprocess.Popen("python Code/%s/%s"%(request.session['sesion'],estado), stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-            # with io.open(ruta, 'r', encoding='utf8') as f:
-            #    text = f.read()
-            return HttpResponse(exec_command.stdout.read() + exec_command.stderr.read())
+            if lenguaje == "py":
+                exec_command = subprocess.Popen("python Code/%s/%s"%(request.session['sesion'],estado), stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+                return HttpResponse(exec_command.stdout.read() + exec_command.stderr.read())
+            else:
+                exec_command = subprocess.Popen("node Code/%s/%s"%(request.session['sesion'],estado), stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+                return HttpResponse(exec_command.stdout.read() + exec_command.stderr.read())
         else:
             with io.open("Code/%s/%s/%s"%(request.session['sesion'],dir,estado), 'w', encoding='utf8') as f:
                 f.write(code)
-            exec_command = subprocess.Popen("python Code/%s/%s/%s"%(request.session['sesion'],dir,estado), stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-            # with io.open(ruta, 'r', encoding='utf8') as f:
-            #    text = f.read()
-            return HttpResponse(exec_command.stdout.read() + exec_command.stderr.read())
+            if lenguaje == "py":
+                exec_command = subprocess.Popen("python Code/%s/%s/%s"%(request.session['sesion'],dir,estado), stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+                return HttpResponse(exec_command.stdout.read() + exec_command.stderr.read())
+            else:
+                exec_command = subprocess.Popen("node Code/%s/%s/%s"%(request.session['sesion'],dir,estado), stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+                return HttpResponse(exec_command.stdout.read() + exec_command.stderr.read())
 
 @csrf_exempt
 def descargar(request,name,dir):
