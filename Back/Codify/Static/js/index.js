@@ -8,6 +8,7 @@ const runIcon = document.querySelector('#correr');
 const downIcon = document.querySelector('#descargar');
 const editorIcon = document.querySelector('#editor');
 const compartirIcon = document.querySelector('#compartirIcon');
+const eliminarIcon = document.querySelector('#borrar');
 
 personal.addEventListener("click",showPersonal);
 shared.addEventListener("click",showShared);
@@ -19,6 +20,7 @@ runIcon.addEventListener("click", enviar);
 downIcon.addEventListener("click", descargar);
 editorIcon.addEventListener("keyup", actualizar);
 compartirIcon.addEventListener("click", ver_compartir);
+eliminarIcon.addEventListener("click", eliminacion);
 
 //Nuevo Editor
 var editor = ace.edit("editor");
@@ -385,6 +387,40 @@ function r_soli(id){
 
         },
     });
+}
+function eliminacion(){
+    Swal.fire({
+        title: 'Are you sure?',
+        text: "You won't be able to revert this!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, delete it!'
+      }).then((result) => {
+        if (result.value) {
+            $.ajax({
+                type:'POST',
+                url:'eliminacion',
+                data:{
+                    nombre:estado,
+                    dir:dir_estado,
+                    id:iddd
+                },
+                success:function(data){
+                  location.reload()  
+                },
+            });
+
+
+
+          Swal.fire(
+            'Deleted!',
+            'Your file has been deleted.',
+            'success'
+          )
+        }
+      })
 }
 //-------- EDITOR ----------------------------------------------------------------------------------------------
 
