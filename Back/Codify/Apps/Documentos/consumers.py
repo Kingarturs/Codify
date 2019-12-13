@@ -29,7 +29,7 @@ class DocumentConsumer(SyncConsumer):
         tipo = dic['tipo']
 
         if tipo == "1":
-            cambio = json.loads(event['text'])['contenido']
+            cambio = json.loads(event['text'])['contenido'].replace(u'\xa0', u' ')
             ruta = json.loads(event['text'])['dir']
             nombre = json.loads(event['text'])['nombre']
 

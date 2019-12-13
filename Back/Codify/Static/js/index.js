@@ -42,9 +42,10 @@ console.log(endpoint)
 var socket = new WebSocket(endpoint);
 
 socket.onmessage = function(e){
+    var pos = editor.session.selection.toJSON()
+    editor.session.setValue("" + editor.session.getValue())
     editor.setValue(e.data);
-    editor.focus();
-    editor.navigateLineEnd();
+    editor.session.selection.fromJSON(pos)
 }
 socket.onopen = function(e){
     console.log("open", e);
