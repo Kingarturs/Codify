@@ -44,4 +44,5 @@ urlpatterns = [
     path('index/compartir', views_documentos.compartir),
     path('index/aceptacion', views_documentos.aceptacion),
     path('index/rechazacion', views_documentos.rechazacion),
+    path('index/eliminacion', views_documentos.eliminacion),
 ]

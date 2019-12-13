@@ -86,7 +86,7 @@ DATABASES = {
         'NAME': 'codify',
         'HOST': '127.0.0.1',
         'USER': 'root',
-        'PASSWORD': '',
+        'PASSWORD': 'alejandro',
     }
 }
 

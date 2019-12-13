@@ -233,4 +233,13 @@ def rechazacion(request):
     s = Solicitudes_b.objects.filter(pk=id)
     s.delete()
     return HttpResponse("F")
-    
+
+@csrf_exempt
+def eliminacion(request):
+    nombre = request.POST.get("nombre")
+    dir = request.POST.get("dir")
+    id = request.session['sesion']
+    if dir == "":
+        os.remove("Code/%s/%s"%(id,nombre))
+    else:
+        os.remove("Code/%s/%s/%s"%(id,dir,nombre))
