@@ -203,8 +203,8 @@ function cargar(data){
             a.setAttribute("class", "btn");
             a.setAttribute("href", "#" + key + "--");
             temp2.appendChild(a);
-            img = document.createElement("img");
-            img.setAttribute("src", "../static/img/dots.svg")
+            img = document.createElement("div");
+            // img.setAttribute("src", "../static/img/dots.svg")
             img.setAttribute("class", "svg")
             temp2.appendChild(img);
             temp.appendChild(temp2)
