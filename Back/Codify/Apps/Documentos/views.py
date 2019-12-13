@@ -55,22 +55,22 @@ def codigo(request):
             exec_command = subprocess.Popen("node %s"%direccion(request), stdout=subprocess.PIPE, stderr=subprocess.PIPE)
             return HttpResponse(exec_command.stdout.read() + exec_command.stderr.read())
 @csrf_exempt
-def descargar(request,name,dir):
+def descargar(request,name,dir, id):
     if dir == "a57f389a2d5e57b02b3f2225814ae13e":
-        filename = "Code/%s/%s"%(request.session['sesion'],name)
+        filename = "Code/%s/%s"%(id,name)
         with io.open(filename, 'r', encoding='utf8') as f:
             text = f.read()
         response = HttpResponse(text,content_type ='application/force-download') # mimetype is replaced by content_type for django 1.7
         response['Content-Disposition'] = 'attachment; filename=%s' % smart_str(filename)
-        response['X-Sendfile'] = smart_str("Code/%s/"%(request.session['sesion']))
+        response['X-Sendfile'] = smart_str("Code/%s/"%(id))
         return response
     else:
-        filename = "Code/%s/%s/%s"%(request.session['sesion'],dir,name)
+        filename = "Code/%s/%s/%s"%(id,dir,name)
         with io.open(filename, 'r', encoding='utf8') as f:
             text = f.read()
         response = HttpResponse(text,content_type ='application/force-download') # mimetype is replaced by content_type for django 1.7
         response['Content-Disposition'] = 'attachment; filename=%s' % smart_str(filename)
-        response['X-Sendfile'] = smart_str("Code/%s/%s"%(request.session['sesion'],dir))
+        response['X-Sendfile'] = smart_str("Code/%s/%s"%(id,dir))
         return response
         
 

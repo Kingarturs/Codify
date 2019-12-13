@@ -301,7 +301,7 @@ function descargar(){
     else{
         dirs_estado = dir_estado
     }
-    window.open("descargar/"+estado+"/"+dirs_estado)
+    window.open("descargar/"+estado+"/"+dirs_estado+"/"+iddd)
     // $.ajax({
         //     type:'POST',
         //     url:'descargar',
@@ -408,8 +408,11 @@ function eliminacion(){
                     id:iddd
                 },
                 success:function(data){
-                  location.reload()  
+                  window.location.reload() 
                 },
+                error: function(){
+                    window.location.reload()
+                }
             });
 
 
