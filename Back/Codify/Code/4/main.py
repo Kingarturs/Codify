@@ -1,2 +1,1 @@
-import os
-import hola como est
+print('hola mundo') hola alejandro xd

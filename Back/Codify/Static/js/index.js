@@ -7,6 +7,7 @@ const perfilIcon = document.querySelector('#perfil');
 const runIcon = document.querySelector('#correr');
 const downIcon = document.querySelector('#descargar');
 const editorIcon = document.querySelector('#editor');
+const compartirIcon = document.querySelector('#compartirIcon');
 
 personal.addEventListener("click",showPersonal);
 shared.addEventListener("click",showShared);
@@ -17,6 +18,7 @@ perfilIcon.addEventListener("click", perfil);
 runIcon.addEventListener("click", enviar);
 downIcon.addEventListener("click", descargar);
 editorIcon.addEventListener("keyup", actualizar);
+compartirIcon.addEventListener("click", ver_compartir);
 
 //Nuevo Editor
 var editor = ace.edit("editor");
@@ -313,7 +315,7 @@ function descargar(){
 function ver_compartir(){
     document.getElementById("compartir").style.display = "block";
     $("#compartir").animate({top:"30%",height: "300px", width: "30%"},250);
-    
+
 }
 
 function verificar(){
