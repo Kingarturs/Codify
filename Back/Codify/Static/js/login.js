@@ -33,11 +33,16 @@ logInButton.addEventListener('click', () => {
 					user:username,
 				},
 				success: function(data){	
-					localStorage.setItem("usuario",username);
+					window.location = "/index";
 				},
-				
+				error: function(){
+					Swal.fire({
+						icon: 'error',
+						title: 'Oops...',
+						text: 'Something went wrong!',
+					})
+				} 
 			});
-			window.location = "/index";
 		},
 		
 	});

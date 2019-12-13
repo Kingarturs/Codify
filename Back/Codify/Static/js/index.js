@@ -101,7 +101,21 @@ function notificaciones(){
 }
 
 function perfil(){
-    alert("Perfil");
+    Swal.fire({
+        title: 'Are you sure?',
+        text: "We will miss you 😥!",
+        icon: 'warning',
+        target: 'body',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, Log Out!',
+        allowEscapeKey: true,
+      }).then((result) => {
+        if (result.value) {
+          window.location = "logout";
+        }
+    })
 }
 
 function actualizar(){

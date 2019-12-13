@@ -98,6 +98,7 @@ def crearCarpeta(request):
     if requet.method == 'POST':
         os.mkdir(os.path.join(BASE_DIR + '/Code', request.POST.get('carpeta')))
         return HttpResponse("Listo xd")
+
 @csrf_exempt
 def mkdir(request):
     usuario = request.POST.get("user")
@@ -107,6 +108,7 @@ def mkdir(request):
         os.mkdir("Code/%s"%usuario)
         with io.open("Code/%s/main.py"%usuario, 'w', encoding='utf8') as f:
                 f.write("print('hola mundo')")
+    return HttpResponse("Ok")
 
 @csrf_exempt
 def carpeta(request):

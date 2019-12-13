@@ -14,6 +14,7 @@
 	<link href="https://fonts.googleapis.com/css?family=Actor&display=swap" rel="stylesheet"> 
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins&display=swap">
 
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 	<script defer type="text/javascript" src="{% static 'js/vendor/jquery.js' %}"></script>
 	<script defer type="text/javascript" src="{% static 'js/vendor/foundation.js' %}"></script>
 	<script defer type="text/javascript" src="{% static 'js/app.js' %}"></script>
@@ -72,6 +73,12 @@
 					<img class="imagenes-iconos" src="{% static 'img/notification.svg' %}" id="notification"></div>
 					<div class="div-iconos columns large-3 medium-3 small-3">
 					<img class="imagenes-iconos" src="{% static 'img/profile.svg' %}" id="perfil"></div>
+					<div class="div-iconos columns large-3 medium-3 small-3">
+					<img class="imagenes-iconos" src="{% static 'img/download.svg' %}" id="descargar"></div>
+					<div class="div-iconos columns large-3 medium-3 small-3">
+					<img class="imagenes-iconos" src="{% static 'img/share.svg' %}" id="compartir"></div>
+					<div class="div-iconos columns large-3 medium-3 small-3">
+					<img class="imagenes-iconos" src="{% static 'img/delete.svg' %}" id="borrar"></div>
 			</div>
 		</div>
 		
@@ -79,7 +86,7 @@
 			<div class="row expanded code">
 				<div id="editor" class="editor" contenteditable="true" placeholder="//Your code here"></div>
 			</div>
-			<div class="row expande btnRun">
+			<div class="row expanded btnRun">
 				<div class="columns large-1 medium-1 small-2 large-offset-11 medium-offset-11 small-offset-9 run">
 					<div class="row expanded height-100">
 						<div class="columns large-6 medium-6 small-6 large-offset-2  medium-offset-2 small-offset-2 run-elements height-100">
@@ -95,23 +102,14 @@
 				<div class="columns large-1 medium-1 large-offset-11 medium-offset-11 run" id="correr">
 					<div class="row expanded height-100">
 						<div class="columns large-6 medium-6 large-offset-2  medium-offset-2 run-elements height-100">
-							<h5 class="run-text">Run</h5>
+							<h5 class="run-text"></h5>
 						</div>
 						<div class="run-elements columns large-3 medium-3 height-100">
 							<img class="run-icon" src="{% static 'img/run.svg' %}">
 						</div>
 					</div>
 				</div>
-				<div class="columns large-1 medium-1 large-offset-11 medium-offset-11 run" id="descargar">
-						<div class="row expanded height-100">
-							<div class="columns large-6 medium-6 large-offset-2  medium-offset-2 run-elements height-100">
-								<h5 class="run-text">Descargar</h5>
-							</div>
-							<div class="run-elements columns large-3 medium-3 height-100">
-								<img class="run-icon" src="{% static 'img/run.svg' %}">
-							</div>
-						</div>
-					</div>
+				
 				<div id="consola"></div>
 			</div>
 		</div>

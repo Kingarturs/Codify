@@ -1,1 +1,1 @@
-console.log("hola mundo, versión sockets v2.0");
+console.log("xd");

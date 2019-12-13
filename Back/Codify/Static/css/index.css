@@ -8,6 +8,14 @@ body, html {
 	font-family: 'Actor', sans-serif;
 	width: 100%;
 	height: 100%;
+	overflow: hidden;
+}
+
+.compiler{
+	padding: 20px;
+}
+.files{
+	overflow-y: scroll;
 }
 
 a{
@@ -17,6 +25,25 @@ a{
 
 li{
 	list-style: none !important;
+}
+
+.dropdown {
+	position: relative;
+	display: flex;
+}
+  
+.dropdown-content {
+	display: none;
+	position: absolute;
+	background-color: #f9f9f9;
+	min-width: 160px;
+	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+	padding: 12px 16px;
+	z-index: 1;
+}
+  
+.dropdown:hover .dropdown-content {
+	display: block;
 }
 
 .options{
@@ -147,7 +174,7 @@ li{
 }
 
 .files{
-	height: 85.5%;
+	height: 75%;
 	padding: 4.5%;
 }
 .files-text{
@@ -205,7 +232,8 @@ li{
 
 .compiler{
     border-top: solid #707070 2px;
-    height: 30%;
+	height: 30%;
+	color: white;
     background-color: #2d3436;
     display: none !important;
 }
@@ -309,7 +337,7 @@ li{
 }
 
 .files{
-	height: 81.5%;
+	height: 75.5%;
 	padding: 4.5%;
 }
 .files-text{
@@ -361,7 +389,8 @@ li{
 .compiler{
     border-top: solid #707070 2px;
     height: 30%;
-    background-color: #2d3436;
+	background-color: #2d3436;
+	color: white;
 }
 .run{
 	height: 13.5%;
@@ -423,6 +452,9 @@ li{
       animation: typewriter 2s steps(13) 1s 1 normal both,
       blinkTextCursor 1000ms steps(13) infinite normal;
 }
+
+
+
 @keyframes typewriter {
       from {
             width: 0;
@@ -468,12 +500,18 @@ li{
 }
 
 .files{
-	height: 73%;
+	height: 64%;
 	padding: 4.5%;
 	overflow: hidden;
 	overflow-y: scroll;
 	margin-bottom: 20px;
 }
+
+#correr{
+	padding: 10px;
+	width: 40px;
+}
+
 .files-text{
 	font-size: 80%;
 	display: flex;
