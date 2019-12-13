@@ -34,6 +34,7 @@ logInButton.addEventListener('click', () => {
 				},
 				success: function(data){	
 					window.location = "/index";
+					window.location.reload()
 				},
 				error: function(){
 					Swal.fire({

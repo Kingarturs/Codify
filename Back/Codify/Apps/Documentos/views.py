@@ -240,6 +240,12 @@ def eliminacion(request):
     dir = request.POST.get("dir")
     id = request.session['sesion']
     if dir == "":
-        os.remove("Code/%s/%s"%(id,nombre))
+        url = "Code/%s/%s"%(id,nombre)
+        os.remove(url)
+        ac = Accesos_b.objects.filter(ruta=url)
+        ac.delete()
     else:
-        os.remove("Code/%s/%s/%s"%(id,dir,nombre))
+        url = "Code/%s/%s/%s"%(id,dir,nombre)
+        os.remove(url)
+        ac = Accesos_b.objects.filter(ruta=url)
+        ac.delete()
