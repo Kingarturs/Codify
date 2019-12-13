@@ -42,7 +42,9 @@ console.log(endpoint)
 var socket = new WebSocket(endpoint);
 
 socket.onmessage = function(e){
-    console.log(e.data);
+    editor.setValue(e.data);
+    editor.focus();
+    editor.navigateLineEnd();
 }
 socket.onopen = function(e){
     console.log("open", e);

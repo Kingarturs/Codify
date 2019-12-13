@@ -44,7 +44,7 @@ class DocumentConsumer(SyncConsumer):
                 self.room_group_name,
                 {
                     'type': 'enviar_archivo',
-                    'message': cambio
+                    'text': cambio
                 }
             )
         else:
@@ -61,12 +61,13 @@ class DocumentConsumer(SyncConsumer):
         
 
     def enviar_archivo(self, event):
-        message = event['message']
+        # message = event['message']
 
         # Send message to WebSocket
-        self.send(text_data=json.dumps({
-            'message': message
-        }))
+        self.send({
+            "type":"websocket.send",
+            "text": event['text'],
+        })
     
     def websocket_disconnect(self, event):
         print("Deconectado", event) 
