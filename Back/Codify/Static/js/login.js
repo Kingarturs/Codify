@@ -1,6 +1,6 @@
 const signUpButton = document.getElementById('signUp');
 const signInButton = document.getElementById('signIn');
-const logInButton = document.getElementById('logIn');
+const logInButton = document.getElementById('login');
 const registro = document.getElementById('registro');
 const container = document.getElementById('container');
 

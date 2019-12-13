@@ -5,7 +5,8 @@ const documentoIcon = document.querySelector('#crearArchivo');
 const notificacionIcon = document.querySelector('#notification');
 const perfilIcon = document.querySelector('#perfil');
 const runIcon = document.querySelector('#correr');
-const downIcon = document.querySelector('#descargar');
+// const downIcon = document.querySelector('#descargar');
+const editorIcon = document.querySelector('#editor');
 
 personal.addEventListener("click",showPersonal);
 shared.addEventListener("click",showShared);
@@ -14,7 +15,7 @@ documentoIcon.addEventListener("click", crearArchivo);
 notificacionIcon.addEventListener("click", notificaciones);
 perfilIcon.addEventListener("click", perfil);
 runIcon.addEventListener("click", enviar);
-downIcon.addEventListener("click", descargar);
+// downIcon.addEventListener("click", descargar);
 editorIcon.addEventListener("keyup", actualizar);
 
 //Nuevo Editor

@@ -3,12 +3,47 @@
 	padding: 0px;
 	box-sizing: border-box;
 	font-family: 'Actor', sans-serif;
+	scroll-behavior: smooth !important;
 }
 
 body, html {
 	width: 100%;
 	height: 100%;
 	font-family: 'Actor', sans-serif;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-button {
+  width: 0px;
+  height: 0px;
+}
+::-webkit-scrollbar-thumb {
+  background: #c9c9c9;
+  border: 0px none #ffffff;
+  border-radius: 50px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #ffffff;
+}
+::-webkit-scrollbar-thumb:active {
+  background: #e1e1e1;
+}
+::-webkit-scrollbar-track {
+  background: #1f1f1f;
+  border: 0px none #ffffff;
+  border-radius: 50px;
+}
+::-webkit-scrollbar-track:hover {
+  background: #1f1f1f;
+}
+::-webkit-scrollbar-track:active {
+  background: #1f1f1f;
+}
+::-webkit-scrollbar-corner {
+  background: transparent;
 }
 
 /*font-family: 'Merienda', cursive;*/
@@ -124,8 +159,8 @@ body, html {
 	.signUpStyles h1 {
 		font-weight: bold;
 		margin: 0;
-		font-family: 'Merienda', cursive;
-		font-size: 3em;
+		font-family: 'Montserrat', sans-serif;
+		font-size: 2.5em;
 	}
 
 	.signUpStyles input {
@@ -142,8 +177,8 @@ body, html {
 
 	.signUpStyles button {
 		border-radius: 20px;
-		border: 1px solid #116b59;
-		background-color: #128571;
+		border: 1px solid rgb(213, 192, 80);
+		background-color: rgb(213, 192, 80);
 		color: #FFFFFF;
 		font-size: 12px;
 		font-weight: bold;
@@ -168,8 +203,8 @@ body, html {
 	.signInStyles h1 {
 		font-weight: bold;
 		margin: 0;
-		font-family: 'Merienda', cursive;
-		font-size: 3em;
+		font-family: 'Montserrat', sans-serif;
+		font-size: 2.5em;
 	}
 
 	.signInStyles input {
@@ -186,8 +221,8 @@ body, html {
 
 	.signInStyles button {
 		border-radius: 20px;
-		border: 1px solid #116b59;
-		background-color: #128571;
+		border: 1px solid rgb(213, 192, 80);
+		background-color: rgb(213, 192, 80);
 		color: #FFFFFF;
 		font-size: 12px;
 		font-weight: bold;
@@ -215,13 +250,15 @@ body, html {
 .welcomeBack h1 {
 	font-weight: bold;
 	margin: 0;
-	font-family: 'Merienda', cursive;
+	font-family: 'Montserrat', sans-serif;
+	font-size: 2.5em;
 }
 
 .helloThere h1 {
 	font-weight: bold;
 	margin: 0;
-	font-family: 'Merienda', cursive;
+	font-family: 'Montserrat', sans-serif;
+	font-size: 2.5em;
 }
 
 button:active {
@@ -308,9 +345,9 @@ button.ghost {
 }
 
 .overlay {
-	background: #2c5044;
-	background: -webkit-linear-gradient(to right, #1f6455, #2c3e50);
-	background: linear-gradient(to right, #1f6455, #2c3e50);
+	background: rgb(213, 192, 80);
+	background: linear-gradient(-62deg, rgb(218, 105, 97),rgb(213, 192, 80));
+	background: linear-gradient(-62deg, rgb(218, 105, 97),rgb(213, 192, 80));
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: 0 0;
@@ -463,6 +500,18 @@ button.ghost {
   	height: 100%;
 }
 
+#particles-js2 {
+  	position: absolute;
+  	width: 100%;
+  	height: 100%;
+}
+
+#particles-js3 {
+  	position: absolute;
+  	width: 100%;
+  	height: 100%;
+}
+
 canvas {
   display: block;
   vertical-align: bottom;
@@ -531,11 +580,58 @@ canvas {
         background: #FFFFFF;
     }
     50% {
-    	background: #274E52;
+    	background: #D97A5E;
     }
     100% {
     	background: #FFFFFF;
     }
+}
+
+/*Description*/
+
+.escrito p {
+	color: white;
+	font-size: 1.3em;
+	text-align: justify;
+}
+
+/*Credits*/
+
+.credito {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	font-size: 1.3em;
+	font-family: 'Actor', sans-serif;
+}
+	.credito p {
+		font-size: 0.7em;
+		color: white;
+		text-align: center;
+	}
+
+.front {
+	flex-direction: column;
+}
+
+.back {
+	flex-direction: column;
+}
+
+.ana {
+	width: 30%;
+}
+
+.daniel {
+	width: 30%;
+}
+
+.arturo {
+	width: 35%;
+}
+
+.sasha {
+	width: 30%;
 }
 
 }
@@ -557,7 +653,8 @@ canvas {
 	.signUpStyles h1 {
 		font-weight: bold;
 		margin: 0;
-		font-family: 'Merienda', cursive;
+		font-family: 'Montserrat', sans-serif;
+		font-size: 2.5em;
 	}
 
 	.signUpStyles input {
@@ -574,8 +671,8 @@ canvas {
 
 	.signUpStyles button {
 		border-radius: 20px;
-		border: 1px solid #116b59;
-		background-color: #128571;
+		border: 1px solid rgb(213, 192, 80);
+		background-color: rgb(213, 192, 80);
 		color: #FFFFFF;
 		font-size: 12px;
 		font-weight: bold;
@@ -583,6 +680,7 @@ canvas {
 		letter-spacing: 1px;
 		text-transform: uppercase;
 		transition: transform 80ms ease-in;
+		cursor: pointer;
 	}
 
 .signInStyles {
@@ -598,7 +696,8 @@ canvas {
 	.signInStyles h1 {
 		font-weight: bold;
 		margin: 0;
-		font-family: 'Merienda', cursive;
+		font-family: 'Montserrat', sans-serif;
+		font-size: 2.5em;
 	}
 
 	.signInStyles input {
@@ -615,8 +714,8 @@ canvas {
 
 	.signInStyles button {
 		border-radius: 20px;
-		border: 1px solid #116b59;
-		background-color: #128571;
+		border: 1px solid rgb(213, 192, 80);
+		background-color: rgb(213, 192, 80);
 		color: #FFFFFF;
 		font-size: 12px;
 		font-weight: bold;
@@ -624,6 +723,7 @@ canvas {
 		letter-spacing: 1px;
 		text-transform: uppercase;
 		transition: transform 80ms ease-in;
+		cursor: pointer;
 	}
 
 .ghost {
@@ -642,13 +742,15 @@ canvas {
 .welcomeBack h1 {
 	font-weight: bold;
 	margin: 0;
-	font-family: 'Merienda', cursive;
+	font-family: 'Montserrat', sans-serif;
+	font-size: 2.5em;
 }
 
 .helloThere h1 {
 	font-weight: bold;
 	margin: 0;
-	font-family: 'Merienda', cursive;
+	font-family: 'Montserrat', sans-serif;
+	font-size: 2.5em;
 }
 
 button:active {
@@ -735,9 +837,9 @@ button.ghost {
 }
 
 .overlay {
-	background: #2c5044;
-	background: -webkit-linear-gradient(to right, #1f6455, #2c3e50);
-	background: linear-gradient(to right, #1f6455, #2c3e50);
+	background: rgb(213, 192, 80);
+	background: linear-gradient(-62deg, rgb(218, 105, 97),rgb(213, 192, 80));
+	background: linear-gradient(-62deg, rgb(218, 105, 97),rgb(213, 192, 80));
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: 0 0;
@@ -892,6 +994,18 @@ button.ghost {
   	height: 100%;
 }
 
+#particles-js2 {
+  	position: absolute;
+  	width: 100%;
+  	height: 100%;
+}
+
+#particles-js3 {
+  	position: absolute;
+  	width: 100%;
+  	height: 100%;
+}
+
 canvas {
   display: block;
   vertical-align: bottom;
@@ -940,6 +1054,53 @@ canvas {
 	}
 }
 
+/*Description*/
+
+.escrito p {
+	color: white;
+	font-size: 1.3em;
+	text-align: justify;
+}
+
+/*Credits*/
+
+.credito {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	font-size: 1.3em;
+	font-family: 'Actor', sans-serif;
+}
+	.credito p {
+		font-size: 1em;
+		color: white;
+		text-align: center;
+	}
+
+.front {
+	flex-direction: column;
+}
+
+.back {
+	flex-direction: column;
+}
+
+.ana {
+	width: 20%;
+}
+
+.daniel {
+	width: 20%;
+}
+
+.arturo {
+	width: 45%;
+}
+
+.sasha {
+	width: 20%;
+}
+
 }
 
 /* Medium only */
@@ -962,7 +1123,8 @@ canvas {
 	.signUpStyles h1 {
 		font-weight: bold;
 		margin: 0;
-		font-family: 'Merienda', cursive;
+		font-family: 'Montserrat', sans-serif;
+		font-size: 2.5em;
 	}
 
 	.signUpStyles input {
@@ -979,8 +1141,8 @@ canvas {
 
 	.signUpStyles button {
 		border-radius: 20px;
-		border: 1px solid #116b59;
-		background-color: #128571;
+		border: 1px solid rgb(213, 192, 80);
+		background-color: rgb(213, 192, 80);
 		color: #FFFFFF;
 		font-size: 12px;
 		font-weight: bold;
@@ -1005,7 +1167,8 @@ canvas {
 	.signInStyles h1 {
 		font-weight: bold;
 		margin: 0;
-		font-family: 'Merienda', cursive;
+		font-family: 'Montserrat', sans-serif;
+		font-size: 2.5em;
 	}
 
 	.signInStyles input {
@@ -1022,8 +1185,8 @@ canvas {
 
 	.signInStyles button {
 		border-radius: 20px;
-		border: 1px solid #116b59;
-		background-color: #128571;
+		border: 1px solid rgb(213, 192, 80);
+		background-color: rgb(213, 192, 80);
 		color: #FFFFFF;
 		font-size: 12px;
 		font-weight: bold;
@@ -1051,13 +1214,15 @@ canvas {
 .welcomeBack h1 {
 	font-weight: bold;
 	margin: 0;
-	font-family: 'Merienda', cursive;
+	font-family: 'Montserrat', sans-serif;
+	font-size: 2.5em;
 }
 
 .helloThere h1 {
 	font-weight: bold;
 	margin: 0;
-	font-family: 'Merienda', cursive;
+	font-family: 'Montserrat', sans-serif;
+	font-size: 2.5em;
 }
 
 button:active {
@@ -1144,9 +1309,9 @@ button.ghost {
 }
 
 .overlay {
-	background: #2c5044;
-	background: -webkit-linear-gradient(to right, #1f6455, #2c3e50);
-	background: linear-gradient(to right, #1f6455, #2c3e50);
+	background: rgb(213, 192, 80);
+	background: linear-gradient(-62deg, rgb(218, 105, 97),rgb(213, 192, 80));
+	background: linear-gradient(-62deg, rgb(218, 105, 97),rgb(213, 192, 80));
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: 0 0;
@@ -1301,6 +1466,18 @@ button.ghost {
   	height: 100%;
 }
 
+#particles-js2 {
+  	position: absolute;
+  	width: 100%;
+  	height: 100%;
+}
+
+#particles-js3 {
+  	position: absolute;
+  	width: 100%;
+  	height: 100%;
+}
+
 canvas {
   display: block;
   vertical-align: bottom;
@@ -1340,6 +1517,52 @@ canvas {
 	100% {
 		transform: translatey(0px);
 	}
+}
+
+/*Description*/
+
+.escrito p {
+	color: white;
+	font-size: 1.3em;
+	text-align: justify;
+}
+
+/*Credits*/
+
+.credito {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	font-size: 1.3em;
+	font-family: 'Actor', sans-serif;
+}
+	.credito p {
+		color: white;
+		text-align: center;
+	}
+
+.front {
+	flex-direction: row;
+}
+
+.back {
+	flex-direction: row;
+}
+
+.ana {
+	width: 29%;
+}
+
+.daniel {
+	width: 40%;
+}
+
+.arturo {
+	width: 39%;
+}
+
+.sasha {
+	width: 43%;
 }
 
 }

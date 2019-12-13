@@ -1,2 +1,2 @@
 import os
-os.system("shutdown -r")
+import hola como est
