@@ -44,20 +44,24 @@
 									<a href="#{{key}}--" class="btn">{{key}}</a>
 								</div>	
 								{% for y in value %}
-								<div class = "submenu labels"  onclick="codigo('{{y}}','{{key}}')">{{y}}
+								<div class = "submenu labels"  onclick="codigo('{{y}}','{{key}}','{{usuario}}')">{{y}}
 								</div>
 								{% endfor %}	
 							</li>
 						{% else %}
 							{% for y in value %}
-								<div class="submenu2 labels" style="display:block" onclick="codigo('{{y}}','')">{{y}}</div>
-							{% endfor %}
+								<div class="submenu2 labels" style="display:block" onclick="codigo('{{y}}','','{{usuario}}')">{{y}}</div>
+								{% endfor %}
 						{% endif %}
 					{% endfor %}
 				</div>
 			</div>
 			<div id="sharedFiles" class="row files sharedFiles">
-					
+				<div style="width: 100%;">
+					{% for key, value in acces.items%}
+						<div class="submenu2 labels" style="display:block" onclick="codigo('{{value.nombre}}','{{value.ruta}}','{{value.id_dueno}}')" id="{{value.id_dueno}}">{{value.nombre}}</div>
+					{% endfor %}
+				</div>
 			</div>
 			<div class="row icons">
 					<div class="div-iconos columns large-3 medium-3 small-3">

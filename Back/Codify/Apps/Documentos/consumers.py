@@ -50,8 +50,10 @@ class DocumentConsumer(SyncConsumer):
         else:
             ruta = json.loads(event['text'])['dir']
             nombre = json.loads(event['text'])['nombre']
+            usuario = json.loads(event['text'])['usuario']
             
-            self.room_name = str(self.username) + "_" + ruta + "_" + nombre
+            
+            self.room_name = usuario + "_" + ruta + "_" + nombre
             self.room_group_name = 'file_%s' % self.room_name
 
             async_to_sync(self.channel_layer.group_add)(

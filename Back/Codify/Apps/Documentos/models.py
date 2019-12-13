@@ -14,10 +14,10 @@ class Documento (models.Model):
     proyecto = models.ForeignKey('Carpeta', on_delete=models.CASCADE)
 class Solicitudes_b(models.Model):
     ruta = models.CharField(max_length=200)
-    dueno_id = models.ForeignKey(User, on_delete=models.CASCADE, related_name='dueno' )
-    invitado_id = models.ForeignKey(User, on_delete=models.CASCADE, related_name='invitado')
+    dueno = models.ForeignKey(User, on_delete=models.CASCADE, related_name='dueno' )
+    invitado = models.ForeignKey(User, on_delete=models.CASCADE, related_name='invitado')
 class Accesos_b(models.Model):
     ruta = models.CharField(max_length=200)
-    destinatario_id = models.ForeignKey(User, on_delete=models.CASCADE, related_name='destinatario')
-    solicitud_id = models.ForeignKey(User, on_delete=models.CASCADE, related_name='solicitud')
+    destinatario = models.ForeignKey(User, on_delete=models.CASCADE, related_name='destinatario')
+    solicitud = models.ForeignKey(User, on_delete=models.CASCADE, related_name='solicitud')
 

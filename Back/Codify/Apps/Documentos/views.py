@@ -36,7 +36,17 @@ def codigo(request):
     if request.method == 'POST':
         code = request.POST.get("codigo").replace(u'\xa0', u' ')
         lenguaje = request.POST.get("lenguaje")
-        with io.open(direccion(request), 'w', encoding='utf8') as f:
+        usuario = request.POST.get("id")
+        print(usuario)
+        nombre = variable(request,"nombre")
+        dir = variable(request,"dir")
+        url = ""
+        if(dir == ""):
+            url = "Code/%s/%s"%(usuario,nombre)
+        else:
+            url = "Code/%s/%s/%s"%(usuario,dir,nombre)
+
+        with io.open(url, 'w', encoding='utf8') as f:
             f.write(code)
         if lenguaje == "py":
             exec_command = subprocess.Popen("python %s"%direccion(request), stdout=subprocess.PIPE, stderr=subprocess.PIPE)

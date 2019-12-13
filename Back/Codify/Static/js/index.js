@@ -5,7 +5,7 @@ const documentoIcon = document.querySelector('#crearArchivo');
 const notificacionIcon = document.querySelector('#notification');
 const perfilIcon = document.querySelector('#perfil');
 const runIcon = document.querySelector('#correr');
-// const downIcon = document.querySelector('#descargar');
+const downIcon = document.querySelector('#descargar');
 const editorIcon = document.querySelector('#editor');
 
 personal.addEventListener("click",showPersonal);
@@ -15,7 +15,7 @@ documentoIcon.addEventListener("click", crearArchivo);
 notificacionIcon.addEventListener("click", notificaciones);
 perfilIcon.addEventListener("click", perfil);
 runIcon.addEventListener("click", enviar);
-// downIcon.addEventListener("click", descargar);
+downIcon.addEventListener("click", descargar);
 editorIcon.addEventListener("keyup", actualizar);
 
 //Nuevo Editor
@@ -217,8 +217,8 @@ function cargar(data){
 
 var estado = "";
 var dir_estado = "";
-
-function codigo(name,dir){
+var iddd = "";
+function codigo(name,dir,id){
 
     if(name.slice(name.length-2, name.length) == "js"){
         editor.session.setMode("ace/mode/javascript");
@@ -229,14 +229,15 @@ function codigo(name,dir){
     estado = name;
     dir_estado = dir;
     tipoMensaje = "2";
-    
+    iddd = id
     $.ajax({
         type:'POST',
         url:'getCodigo',
         data:{
-            nombre: estado,
+            nombre: name,
             dir:dir,
-            codigo: editor.getValue()
+            codigo: editor.getValue(),
+            usuario:id
         },
         success:function(data){
             editor.setValue(data);
@@ -249,6 +250,7 @@ function codigo(name,dir){
         nombre: estado,
         dir: dir_estado,
         tipo: tipoMensaje, 
+        usuario:id,
     }
     socket.send(
         JSON.stringify(dict)
@@ -263,10 +265,10 @@ function codigo(name,dir){
         url:'codigo',
         data:{
             codigo: contenido,
-            estado:estado,
+            nombre:estado,
             dir:dir_estado,
-            lenguaje: estado.slice(estado.length-2, estado.length)
-
+            lenguaje: estado.slice(estado.length-2, estado.length),
+            id: iddd
         },
         success:function(data){
             document.getElementById("consola").textContent = data

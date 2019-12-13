@@ -33,11 +33,15 @@ def index_view(request):
     a = Accesos_b.objects.filter(solicitud_id=request.session['sesion'])
     try:
         for i in a:
-            accesos[i.id] = {"ruta":i.ruta,"nombre":str(i.ruta.split("/")[-1:][0 ]), "id_dueno":i.destinatario_id}
+            if len(i.ruta.split("/")) == 3:
+                accesos[i.id] = {"ruta":"","nombre":str(i.ruta.split("/")[-1:][0 ]), "id_dueno":i.destinatario_id}
+            else:
+                
+                accesos[i.id] = {"ruta":i.ruta.split("/")[2],"nombre":str(i.ruta.split("/")[-1:][0 ]), "id_dueno":i.destinatario_id}
     except:
         pass
     print(accesos)
-    return render(request, "index.html",{"dirs":carpetas,"soli":solicitudes, "acces":accesos})
+    return render(request, "index.html",{"dirs":carpetas,"soli":solicitudes, "acces":accesos,"usuario":request.session['sesion']})
 
 def welcome_view(request):
     return render(request, "welcome.html")
