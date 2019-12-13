@@ -39,15 +39,18 @@
 				<div style = "width: 100%;">
 					{% for key,value in dirs.items %}
 						{% if key != "" %}	
-							<li class = "acc-item" id="{{key}}--"><a href="#{{key}}--" class="btn">{{key}}</a>
+							<li class = "acc-item" id="{{key}}--">
+								<div class="labels">
+									<a href="#{{key}}--" class="btn">{{key}}</a>
+								</div>	
 								{% for y in value %}
-									<div class = "submenu"  onclick="codigo('{{y}}','{{key}}')">{{y}}</div>
-								{% endfor %}			
+								<div class = "submenu labels"  onclick="codigo('{{y}}','{{key}}')">{{y}}
+								</div>
+								{% endfor %}	
 							</li>
 						{% else %}
 							{% for y in value %}
-								<div class="submenu2" style="display:block" onclick="codigo('{{y}}','')">{{y}}
-								</div>
+								<div class="submenu2 labels" style="display:block" onclick="codigo('{{y}}','')">{{y}}</div>
 							{% endfor %}
 						{% endif %}
 					{% endfor %}
@@ -67,6 +70,7 @@
 					<img class="imagenes-iconos" src="{% static 'img/profile.svg' %}" id="perfil"></div>
 			</div>
 		</div>
+		
 		<div class="columns large-10 medium-10 small-9 area">
 			<div class="row expanded code">
 				<div id="editor" class="editor" contenteditable="true" placeholder="//Your code here"></div>

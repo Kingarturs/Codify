@@ -6,7 +6,6 @@ const notificacionIcon = document.querySelector('#notification');
 const perfilIcon = document.querySelector('#perfil');
 const runIcon = document.querySelector('#correr');
 const downIcon = document.querySelector('#descargar');
-const editorIcon = document.getElementById('editor');
 
 personal.addEventListener("click",showPersonal);
 shared.addEventListener("click",showShared);
@@ -17,7 +16,6 @@ perfilIcon.addEventListener("click", perfil);
 runIcon.addEventListener("click", enviar);
 downIcon.addEventListener("click", descargar);
 editorIcon.addEventListener("keyup", actualizar);
-var tipoMensaje;
 
 //Nuevo Editor
 var editor = ace.edit("editor");
@@ -178,11 +176,20 @@ function cargar(data){
             temp.setAttribute("class","acc-item");
             temp.id = key+"--";
             // temp.setAttribute("onclick", "minMax('"+key+"--')");
+            temp2 = document.createElement("div");
+            temp2.setAttribute("class", "labels")
+
             a = document.createElement("a");
             a.appendChild(document.createTextNode(key))
             a.setAttribute("class", "btn");
             a.setAttribute("href", "#" + key + "--");
-            temp.appendChild(a);
+            temp2.appendChild(a);
+            img = document.createElement("img");
+            img.setAttribute("src", "../static/img/dots.svg")
+            img.setAttribute("class", "svg")
+            temp2.appendChild(img);
+            temp.appendChild(temp2)
+
             for(x in data[key]){
                 hijo = document.createElement("div");
                 hijo.setAttribute("class","submenu");
@@ -209,6 +216,13 @@ var estado = "";
 var dir_estado = "";
 
 function codigo(name,dir){
+
+    if(name.slice(name.length-2, name.length) == "js"){
+        editor.session.setMode("ace/mode/javascript");
+    }else{
+        editor.session.setMode("ace/mode/python");
+    }
+
     estado = name;
     dir_estado = dir;
     tipoMensaje = "2";
