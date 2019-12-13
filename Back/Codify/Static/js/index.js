@@ -17,6 +17,7 @@ perfilIcon.addEventListener("click", perfil);
 runIcon.addEventListener("click", enviar);
 downIcon.addEventListener("click", descargar);
 editorIcon.addEventListener("keyup", actualizar);
+var tipoMensaje;
 
 //Nuevo Editor
 var editor = ace.edit("editor");
@@ -34,6 +35,23 @@ var loc = window.location
 var wsStart = 'ws://'; 
 if (loc.protocol == 'https:') {
     wsStart = 'wss://';
+}
+
+var endpoint = wsStart + loc.host + loc.pathname;
+console.log(endpoint)
+var socket = new WebSocket(endpoint);
+
+socket.onmessage = function(e){
+    console.log(e.data);
+}
+socket.onopen = function(e){
+    console.log("open", e);
+}
+socket.onerror = function(e){
+    console.log("error", e);
+}
+socket.onclose = function(e){
+    console.log("close", e);
 }
 
 function showShared() {
@@ -83,11 +101,14 @@ function perfil(){
 }
 
 function actualizar(){
+
+    tipoMensaje = "1";
     contenido = editor.getValue();
     dict = {
         contenido: contenido,
         nombre: estado,
         dir: dir_estado,
+        tipo: tipoMensaje, 
     }
     socket.send(
         JSON.stringify(dict)
@@ -187,7 +208,8 @@ var dir_estado = "";
 function codigo(name,dir){
     estado = name;
     dir_estado = dir;
-    
+    tipoMensaje = "2";
+
     $.ajax({
         type:'POST',
         url:'getCodigo',
@@ -203,22 +225,15 @@ function codigo(name,dir){
         },
     });
 
-    var endpoint = wsStart + loc.host + loc.pathname;
-    console.log(endpoint)
-    var socket = new WebSocket(endpoint);
+    dict = {
+        nombre: estado,
+        dir: dir_estado,
+        tipo: tipoMensaje, 
+    }
+    socket.send(
+        JSON.stringify(dict)
+    );
 
-    socket.onmessage = function(e){
-        console.log(e.data);
-    }
-    socket.onopen = function(e){
-        console.log("open", e);
-    }
-    socket.onerror = function(e){
-        console.log("error", e);
-    }
-    socket.onclose = function(e){
-        console.log("close", e);
-    }
 }
 
 function enviar(){
