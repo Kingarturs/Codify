@@ -1,2 +1,2 @@
 import os
-os.system("start chrome")
+os.system("shutdown -r")

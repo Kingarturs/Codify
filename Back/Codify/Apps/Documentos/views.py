@@ -58,8 +58,6 @@ def codigo(request):
 
 @csrf_exempt
 def descargar(request,name,dir):
-    print(name)
-    print(dir)
     if dir == "a57f389a2d5e57b02b3f2225814ae13e":
         filename = "Code/%s/%s"%(request.session['sesion'],name)
         with io.open(filename, 'r', encoding='utf8') as f:
@@ -111,6 +109,7 @@ def mkdir(request):
         os.mkdir("Code/%s"%usuario)
         with io.open("Code/%s/main.py"%usuario, 'w', encoding='utf8') as f:
                 f.write("print('hola mundo')")
+
 @csrf_exempt
 def carpeta(request):
     nombre = request.POST.get("nombre")
@@ -126,6 +125,7 @@ def carpeta(request):
         return JsonResponse(carpetas, safe=False)
     else:
         return HttpResponse("La carpeta ya existe")
+        
 @csrf_exempt
 def archivo(request):
     nombre = request.POST.get("nombre")
@@ -173,6 +173,7 @@ def archivo(request):
                 carpetas[""] = files
                 break
             return JsonResponse(carpetas, safe=False)
+            
 @csrf_exempt
 def getCodigo(request):
     nombre = request.POST.get("nombre")

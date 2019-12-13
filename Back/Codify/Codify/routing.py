@@ -12,7 +12,8 @@ application = ProtocolTypeRouter({
         AuthMiddlewareStack(
             URLRouter(
                 [
-                    url(r"^index/(?P<documento>[\w.@+-]+)", consumers.DocumentConsumer)
+                    url(r"^index/(?P<documento>[\w.@+-]+)", consumers.DocumentConsumer),
+                    url(r"^index/", consumers.DocumentConsumer)
                 ]
             )
         )

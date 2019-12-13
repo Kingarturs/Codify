@@ -36,24 +36,6 @@ if (loc.protocol == 'https:') {
     wsStart = 'wss://';
 }
 
-var endpoint = wsStart + loc.host + loc.pathname + "1";
-console.log(endpoint)
-var socket = new WebSocket(endpoint);
-
-socket.onmessage = function(e){
-    console.log(e.data);
-}
-socket.onopen = function(e){
-    console.log("open", e);
-}
-socket.onerror = function(e){
-    console.log("error", e);
-}
-socket.onclose = function(e){
-    console.log("close", e);
-}
-
-
 function showShared() {
 	document.querySelector('#myFiles').style.display = "none";
 	document.querySelector('#sharedFiles').style.display = "block";
@@ -67,7 +49,6 @@ function showPersonal() {
 	shared.style.background = "#2d3436";
 	personal.style.background = "#1e272e";
 }
-
 
 function crearCarpeta(){
     document.getElementById("makeCarpeta").style.display = "block";
@@ -167,6 +148,8 @@ function cargar(data){
     base.appendChild(div);
     for(key in data){
         if(key != ""){
+
+            console.log(data)
             temp = document.createElement("li");
             temp.setAttribute("class","acc-item");
             temp.id = key+"--";
@@ -200,9 +183,11 @@ function cargar(data){
 
 var estado = "";
 var dir_estado = "";
+
 function codigo(name,dir){
     estado = name;
     dir_estado = dir;
+    
     $.ajax({
         type:'POST',
         url:'getCodigo',
@@ -213,8 +198,27 @@ function codigo(name,dir){
         },
         success:function(data){
             editor.setValue(data);
+            editor.navigateLineEnd();
+            editor.focus();
         },
     });
+
+    var endpoint = wsStart + loc.host + loc.pathname;
+    console.log(endpoint)
+    var socket = new WebSocket(endpoint);
+
+    socket.onmessage = function(e){
+        console.log(e.data);
+    }
+    socket.onopen = function(e){
+        console.log("open", e);
+    }
+    socket.onerror = function(e){
+        console.log("error", e);
+    }
+    socket.onclose = function(e){
+        console.log("close", e);
+    }
 }
 
 function enviar(){
@@ -226,7 +230,7 @@ function enviar(){
             codigo: contenido,
             estado:estado,
             dir:dir_estado,
-            action: 'post'
+            lenguaje: estado.slice(estado.length-2, estado.length)
         },
         success:function(data){
             document.getElementById("consola").textContent = data

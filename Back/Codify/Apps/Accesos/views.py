@@ -21,7 +21,6 @@ def index_view(request):
             carpetas[i] = os.listdir("code/%s/%s"%(user,i))
         carpetas[""] = files
         break
-    print(carpetas)
     return render(request, "index.html",{"dirs":carpetas})
 
 def welcome_view(request):
