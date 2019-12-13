@@ -98,7 +98,16 @@
 						</div>
 					</div>
 				</div>
-
+				<div class="columns large-1 medium-1 large-offset-11 medium-offset-11 run" id="descargar">
+						<div class="row expanded height-100">
+							<div class="columns large-6 medium-6 large-offset-2  medium-offset-2 run-elements height-100">
+								<h5 class="run-text">Descargar</h5>
+							</div>
+							<div class="run-elements columns large-3 medium-3 height-100">
+								<img class="run-icon" src="{% static 'img/run.svg' %}">
+							</div>
+						</div>
+					</div>
 				<div id="consola"></div>
 			</div>
 		</div>
@@ -113,11 +122,27 @@
 		<select name="" id="raiz">
 		</select>
 		<select name="" id="lenguaje">
-				<option value="Python">Python</option>
-				<option value="Javascript">Javascript</option>
+			<option value="Python">Python</option>
+			<option value="Javascript">Javascript</option>
 		</select>
 		<input type="button" value="Create" class="button" onclick="makeArchivo();this.parentNode.children[0].value = '';$('#makeArchivo').animate({top:'45%',height: '0%', width: '0%'},500);setTimeout(() => {  this.parentNode.style.display = 'none'; }, 400);">
 		<input type="button" value="Cancel" class="button" onclick="this.parentNode.children[0].value = '';$('#makeArchivo').animate({top:'45%',height: '0%', width: '0%'},500);setTimeout(() => {  this.parentNode.style.display = 'none'; }, 400);">
+	</div>
+	<div class = "make" id = "compartir">
+		<input type="text" placeholder="Nombre del usuario" onkeyup="verificar()">
+		<span id="verificador"></span>
+		<input type="button" value="Compartir" class="button" onclick="compartir();this.parentNode.children[0].value = '';$('#compartir').animate({top:'45%',height: '0%', width: '0%'},500);setTimeout(() => {  this.parentNode.style.display = 'none'; }, 400);">
+		<input type="button" value="Cancel" class="button" onclick="this.parentNode.children[0].value = '';$('#compartir').animate({top:'45%',height: '0%', width: '0%'},500);setTimeout(() => {  this.parentNode.style.display = 'none'; }, 400);">
+	</div>
+	<div class = "make" id = "solicitudes" style="overflow: scroll;">
+		<div class="cerrar" onclick="this.style.display = 'none';$('#solicitudes').animate({top:'45%',height: '0%', width: '0%'},500);setTimeout(() => {  this.parentNode.style.display = 'none'; }, 400);"></div>
+		{% for key,value in soli.items %}
+			<div style="border-bottom: solid 1px;">
+				<div style="margin: 5px;">{{value.dueno}} te ha invitado a colaborar en {{value.nombre}}</div>
+				<input type="button" value="Aceptar" class="button" onclick="a_soli('{{value.ruta}}','{{value.id_dueno}}','{{value.id_invitado}}','{{key}}');$(this.parentNode).animate({top:'45%',height: '0%', width: '0%'},500);setTimeout(() => {  this.parentNode.style.display = 'none'; this.parentNode.parentNode.removeChild(this.parentNode);}, 400);">
+				<input type="button" value="Rechazar" class="button" onclick="r_soli('{{key}}');$(this.parentNode).animate({top:'45%',height: '0%', width: '0%'},500);setTimeout(() => {  this.parentNode.style.display = 'none';this.parentNode.parentNode.removeChild(this.parentNode); }, 400);">
+			</div>
+		{% endfor %}
 	</div>
 </body>
 </html>

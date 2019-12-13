@@ -95,7 +95,9 @@ function crearArchivo(){
 }
 
 function notificaciones(){
-    alert("Notificaciones");
+    document.getElementById("solicitudes").style.display = "block";
+    document.getElementById("solicitudes").children[0].style.display = "block";
+    $("#solicitudes").animate({top:"15%",height: "400px", width: "30%"},250);
 }
 
 function perfil(){
@@ -103,7 +105,7 @@ function perfil(){
 }
 
 function actualizar(){
-
+    
     tipoMensaje = "1";
     contenido = editor.getValue();
     dict = {
@@ -114,11 +116,11 @@ function actualizar(){
     }
     socket.send(
         JSON.stringify(dict)
-    );
-}
-
-function makeArchivo(){
-    nombre = $("#makeArchivo").children()[0].value;
+        );
+    }
+    
+    function makeArchivo(){
+        nombre = $("#makeArchivo").children()[0].value;
     directorio = $("#makeArchivo").children()[1].value;
     tipo = $("#makeArchivo").children()[2].value; 
     $.ajax({
@@ -171,7 +173,7 @@ function cargar(data){
     base.appendChild(div);
     for(key in data){
         if(key != ""){
-
+            
             console.log(data)
             temp = document.createElement("li");
             temp.setAttribute("class","acc-item");
@@ -227,7 +229,7 @@ function codigo(name,dir){
     estado = name;
     dir_estado = dir;
     tipoMensaje = "2";
-
+    
     $.ajax({
         type:'POST',
         url:'getCodigo',
@@ -242,7 +244,7 @@ function codigo(name,dir){
             editor.focus();
         },
     });
-
+    
     dict = {
         nombre: estado,
         dir: dir_estado,
@@ -250,12 +252,12 @@ function codigo(name,dir){
     }
     socket.send(
         JSON.stringify(dict)
-    );
-
-}
-
-function enviar(){
-    var contenido = editor.getValue();
+        );
+        
+    }
+    
+    function enviar(){
+        var contenido = editor.getValue();
     $.ajax({
         type:'POST',
         url:'codigo',
@@ -264,6 +266,7 @@ function enviar(){
             estado:estado,
             dir:dir_estado,
             lenguaje: estado.slice(estado.length-2, estado.length)
+
         },
         success:function(data){
             document.getElementById("consola").textContent = data
@@ -280,18 +283,91 @@ function descargar(){
     }
     window.open("descargar/"+estado+"/"+dirs_estado)
     // $.ajax({
-    //     type:'POST',
-    //     url:'descargar',
-    //     data:{
-    //         estado:estado,
-    //         dir:dir_estado
-    //     },
-    //     success:function(data){
-    //         window.open(data);
-    //     },
+        //     type:'POST',
+        //     url:'descargar',
+        //     data:{
+            //         estado:estado,
+            //         dir:dir_estado
+            //     },
+            //     success:function(data){
+                //         window.open(data);
+                //     },
     // });
 }
+function ver_compartir(){
+    document.getElementById("compartir").style.display = "block";
+    $("#compartir").animate({top:"30%",height: "300px", width: "30%"},250);
+    
+}
 
+function verificar(){
+    $.ajax({
+            type:'POST',
+            url:'verificar',
+        data:{
+                nombre:estado,
+                dir:dir_estado,
+                invitado:$("#compartir").children()[0].value
+            },
+            success:function(data){
+                document.getElementById("verificador").innerHTML = data
+                if(data == "existe"){
+                    $("#compartir").children()[2].disabled = false;
+                }
+                else{
+                    $("#compartir").children()[2].disabled = true;
+                }
+                },
+            });
+}
+$("#compartir").children()[2].disabled = true;
+function compartir(){
+    console.log("compartido");
+    $.ajax({
+        type:'POST',
+        url:'compartir',
+        data:{
+            nombre:estado,
+            dir:dir_estado,
+            invitado:$("#compartir").children()[0].value
+        },
+        success:function(data){
+
+        },
+    });
+        $("#compartir").children()[2].disabled = true;
+        $("#compartir").children()[1].innerHTML = "";
+}
+
+function a_soli(ruta,dueno,invitado,id){
+    console.log("aceptacion");   
+    $.ajax({
+        type:'POST',
+        url:'aceptacion',
+        data:{
+            ruta:ruta,
+            dueno:dueno,
+            invitado:invitado,
+            id:id
+        },
+        success:function(data){
+
+        },
+    });
+}
+function r_soli(id){
+    console.log("rechazacion");
+    $.ajax({
+        type:'POST',
+        url:'rechazacion',
+        data:{
+            id:id,
+        },
+        success:function(data){
+
+        },
+    });
+}
 //-------- EDITOR ----------------------------------------------------------------------------------------------
 
 // var keywords = [

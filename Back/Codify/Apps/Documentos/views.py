@@ -11,6 +11,7 @@ from django.contrib.auth.models import User
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework.permissions import AllowAny
 from django.http import JsonResponse
+from Apps.Documentos.models import Accesos_b,Solicitudes_b
 from rest_framework.status import (
     HTTP_400_BAD_REQUEST,
     HTTP_404_NOT_FOUND,
@@ -34,28 +35,15 @@ from django.views.decorators.csrf import csrf_exempt
 def codigo(request):
     if request.method == 'POST':
         code = request.POST.get("codigo").replace(u'\xa0', u' ')
-        dir = request.POST.get("dir")
-        estado = request.POST.get("estado")
         lenguaje = request.POST.get("lenguaje")
-        if(dir == ""):
-            with io.open("Code/%s/%s"%(request.session['sesion'],estado), 'w', encoding='utf8') as f:
-                f.write(code)
-            if lenguaje == "py":
-                exec_command = subprocess.Popen("python Code/%s/%s"%(request.session['sesion'],estado), stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-                return HttpResponse(exec_command.stdout.read() + exec_command.stderr.read())
-            else:
-                exec_command = subprocess.Popen("node Code/%s/%s"%(request.session['sesion'],estado), stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-                return HttpResponse(exec_command.stdout.read() + exec_command.stderr.read())
+        with io.open(direccion(request), 'w', encoding='utf8') as f:
+            f.write(code)
+        if lenguaje == "py":
+            exec_command = subprocess.Popen("python %s"%direccion(request), stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+            return HttpResponse(exec_command.stdout.read() + exec_command.stderr.read())
         else:
-            with io.open("Code/%s/%s/%s"%(request.session['sesion'],dir,estado), 'w', encoding='utf8') as f:
-                f.write(code)
-            if lenguaje == "py":
-                exec_command = subprocess.Popen("python Code/%s/%s/%s"%(request.session['sesion'],dir,estado), stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-                return HttpResponse(exec_command.stdout.read() + exec_command.stderr.read())
-            else:
-                exec_command = subprocess.Popen("node Code/%s/%s/%s"%(request.session['sesion'],dir,estado), stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-                return HttpResponse(exec_command.stdout.read() + exec_command.stderr.read())
-
+            exec_command = subprocess.Popen("node %s"%direccion(request), stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+            return HttpResponse(exec_command.stdout.read() + exec_command.stderr.read())
 @csrf_exempt
 def descargar(request,name,dir):
     if dir == "a57f389a2d5e57b02b3f2225814ae13e":
@@ -176,14 +164,61 @@ def archivo(request):
             
 @csrf_exempt
 def getCodigo(request):
-    nombre = request.POST.get("nombre")
-    dir = request.POST.get("dir")
-    if dir == "":
-        with io.open("code/%s/%s"%(request.session['sesion'],nombre), 'r', encoding='utf8') as f:
-            text = f.read()
-            return HttpResponse(text)
+    with io.open(direccion(request), 'r', encoding='utf8') as f:
+        text = f.read()
+        return HttpResponse(text)
+
+@csrf_exempt
+def verificar(request):
+    ruta = direccion(request)
+    dueno = sesion(request)
+    try:
+        invitado = User.objects.get(username=variable(request,"invitado"))
+        tu = User.objects.get(pk=sesion(request))
+        if(invitado == tu):
+            return HttpResponse("eres tu")
+        else:
+            return HttpResponse("existe")
+    except:
+        return HttpResponse("no existe")
+@csrf_exempt
+def compartir(request):
+    ruta = direccion(request)
+    dueno = sesion(request)
+    invitado = User.objects.get(username=variable(request,"invitado"))
+    s = Solicitudes_b(
+        dueno = User.objects.get(pk = dueno),
+        invitado = invitado,
+        ruta = ruta
+    )
+    s.save()
+    print(s)
+    return HttpResponse("existe")
+
+def variable(respuesta, var):
+    return  respuesta.POST.get(var)
+def sesion(respuesta):
+    return respuesta.session['sesion']
+def direccion(respuesta):
+    if variable(respuesta,"dir") =="":
+        return "Code/%s/%s"%(sesion(respuesta),variable(respuesta,"nombre"))
     else:
-        with io.open("code/%s/%s/%s"%(request.session['sesion'],dir,nombre), 'r', encoding='utf8') as f:
-            text = f.read()
-            return HttpResponse(text)
+        return "Code/%s/%s/%s"%(sesion(respuesta),variable(respuesta,"dir"),variable(respuesta,"nombre"))
+@csrf_exempt
+def aceptacion(request):
+    id = variable(request,"id")
+    ruta = variable(request,"ruta")
+    dueno = int(variable(request,"dueno"))
+    invitado = int(variable(request,"invitado"))
+    s = Solicitudes_b.objects.filter(pk = id)
+    s.delete()
+    s = Accesos_b(ruta=ruta, destinatario_id=dueno, solicitud_id=invitado)
+    s.save()
+    return HttpResponse("vientos")
+@csrf_exempt
+def rechazacion(request):
+    id = variable(request,"id")
+    s = Solicitudes_b.objects.filter(pk=id)
+    s.delete()
+    return HttpResponse("F")
     

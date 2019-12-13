@@ -707,3 +707,12 @@ li{
 	border: solid blue;
 	display: none;
 } */
+
+.cerrar{
+	position: absolute;
+	background-color: red;
+	width: 15px;
+	height: 15px;
+	border-radius: 5px;
+	right: 0px;
+}

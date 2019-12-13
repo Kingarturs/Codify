@@ -40,4 +40,8 @@ urlpatterns = [
     path('index/carpeta', views_documentos.carpeta),
     path('index/archivo', views_documentos.archivo),
     path('index/getCodigo', views_documentos.getCodigo),
+    path('index/verificar', views_documentos.verificar),
+    path('index/compartir', views_documentos.compartir),
+    path('index/aceptacion', views_documentos.aceptacion),
+    path('index/rechazacion', views_documentos.rechazacion),
 ]
